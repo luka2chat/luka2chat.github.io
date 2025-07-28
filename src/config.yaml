@@ -1,6 +1,6 @@
 site:
   name: Luka2Chat
-  site: 'https://luka2chat.github.io'
+  site: 'https://luka2chat.com'
   base: '/'
   trailingSlash: false
 

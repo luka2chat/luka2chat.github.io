@@ -19,7 +19,7 @@
    - 部署到GitHub Pages
 
 3. **访问你的网站**
-   - 网站地址：`https://luka2chat.github.io`
+   - 网站地址：`https://luka2chat.com`
    - 部署完成后，GitHub会显示部署状态
 
 ### 手动部署（可选）
@@ -42,7 +42,7 @@ npm run preview
 - **构建输出目录**: `dist/`
 - **GitHub Pages源**: GitHub Actions
 - **分支**: `main`
-- **域名**: `luka2chat.github.io`
+- **域名**: `luka2chat.com`
 
 ### 故障排除
 
@@ -54,6 +54,7 @@ npm run preview
 2. **页面显示404**
    - 确保`astro.config.ts`中的`base`路径正确
    - 检查GitHub Pages设置是否正确
+   - 确认Cloudflare DNS配置正确
 
 3. **样式问题**
    - 确保Tailwind CSS正确构建
@@ -65,10 +66,10 @@ npm run preview
 2. 提交并推送到GitHub
 3. GitHub Actions会自动重新部署
 
-### 自定义域名（可选）
+### 自定义域名配置
 
-如果你想使用自定义域名：
+项目已配置为使用自定义域名 `luka2chat.com`：
 
-1. 在GitHub仓库设置中配置自定义域名
-2. 更新`astro.config.ts`中的`site`配置
-3. 更新`src/config.yaml`中的站点配置 
+1. 确保GitHub仓库设置中已配置自定义域名
+2. 确认Cloudflare DNS配置正确
+3. 检查SSL/TLS设置 
