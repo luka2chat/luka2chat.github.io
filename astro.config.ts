@@ -24,7 +24,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
   site: 'https://luka2chat.github.io',
-  base: '/luka2chat.github.io',
+  base: '/',
 
   integrations: [
     tailwind({
