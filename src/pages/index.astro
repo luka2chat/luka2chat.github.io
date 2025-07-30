@@ -14,7 +14,7 @@ import Brands from '~/components/widgets/Brands.astro';
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Startup Landing Page',
+  title: 'luka2chat - Independent Developer',
 };
 ---
 
@@ -22,12 +22,12 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Startup Web Demo"
+    tagline="Independent Developer Portfolio"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Get templates',
+        text: 'View Projects',
         href: 'https://github.com/luka2chat',
         icon: 'tabler:download',
       },
@@ -35,18 +35,17 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white highlight">Startup</span
-      > with Astrowind templates
+      Meet <span class="hidden sm:inline">the creative mind behind</span> <span
+        class="text-accent dark:text-white highlight">luka2chat</span
+      >, Independent Developer
     </Fragment>
 
     <Fragment slot="subtitle">
-      Step into the spotlight with <span class="font-semibold">Astrowind</span> templates, your pathway to fortifying your
-      startup's digital footprint, fostering credibility, and expanding your reach.
+      A passionate independent developer who has crafted numerous innovative products, bringing creative ideas to life through code and technology.
     </Fragment>
 
     <Fragment slot="image">
-      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
+      <!-- <YouTube id="gxBkghlglTg" title="luka2chat - Independent Developer Portfolio" /> -->
       <style is:inline>
         lite-youtube {
           margin: 0 auto;
@@ -59,8 +58,8 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="About us"
-    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 5.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
+    title="About luka2chat"
+    subtitle="luka2chat is an independent developer with a passion for creating innovative digital products. With years of experience in software development, I've built numerous applications, tools, and solutions that solve real-world problems. From mobile apps to web platforms, each project reflects my commitment to quality, user experience, and technological excellence."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -70,21 +69,21 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Discover the impressive impact of Astrowind"
-    subtitle="The numbers below reflect the trust our users have placed in us and the remarkable outcomes we've helped them achieve."
+    title="luka2chat's Development Impact"
+    subtitle="The numbers below showcase the scale and reach of the independent products I've developed and the positive impact they've had on users worldwide."
     stats={[
-      { title: 'Downloads', amount: '182K' },
-      { title: 'Websites Launched', amount: '87' },
-      { title: 'User Ratings', amount: '4.8' },
-      { title: 'Satisfied Clients', amount: '116K' },
+      { title: 'Products Created', amount: '25+' },
+      { title: 'Active Users', amount: '50K+' },
+      { title: 'Code Commits', amount: '2.5K' },
+      { title: 'Years Experience', amount: '8+' },
     ]}
   />
 
   <!-- Brands Widget ****************** -->
 
   <Brands
-    title="Partnerships & Collaborations"
-    subtitle="At Astrowind, we believe in the power of collaboration to drive innovation and create exceptional experiences."
+    title="Technologies & Platforms"
+    subtitle="I work with a diverse range of technologies and platforms to create robust, scalable, and user-friendly applications."
     icons={[]}
     images={[
       {
@@ -147,25 +146,25 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="What services do we provide?"
-    subtitle="We offer a wide range of website templates that suit various industries and purposes such as business, portfolio, e-commerce, blog, etc."
+    title="What services do I provide?"
+    subtitle="As an independent developer, I offer a comprehensive range of development services to bring your ideas to life and solve complex technical challenges."
     items={[
       {
-        title: 'Installation Instructions',
+        title: 'Custom Software Development',
         description:
-          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
+          'Building tailored applications and software solutions that meet your specific business needs and requirements.',
         icon: 'flat-color-icons:document',
       },
       {
-        title: 'Demo and Previews',
+        title: 'Mobile App Development',
         description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
+          'Creating native and cross-platform mobile applications for iOS and Android with modern frameworks and best practices.',
         icon: 'flat-color-icons:template',
       },
       {
-        title: 'Technical Support',
+        title: 'Web Development & Consulting',
         description:
-          'Providing customer support for any technical issues related to the templates or their implementation.',
+          'Providing expert guidance and development services for web applications, from concept to deployment and maintenance.',
         icon: 'flat-color-icons:voice-presentation',
       },
     ]}
@@ -179,41 +178,41 @@ const metadata = {
 
   <Features
     id="features"
-    title="Main features of our templates"
-    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
+    title="Core Development Principles"
+    subtitle="My development approach is guided by these key principles that ensure high-quality, maintainable, and user-focused products."
     columns={3}
     items={[
       {
-        title: 'Modern and Professional Design',
+        title: 'Clean & Maintainable Code',
         description:
-          'Have a contemporary design that reflects current design trends and gives a professional impression.',
+          'Writing code that is not only functional but also clean, well-documented, and easy to maintain for long-term success.',
         icon: 'tabler:artboard',
       },
       {
-        title: 'Responsive and Mobile-Friendly',
-        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
+        title: 'User-Centered Design',
+        description: 'Prioritizing user experience and interface design to create intuitive and engaging applications.',
         icon: 'tabler:picture-in-picture',
       },
       {
-        title: 'Customizability',
+        title: 'Scalable Architecture',
         description:
-          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
+          'Building applications with scalable architecture that can grow with your business needs and user base.',
         icon: 'tabler:adjustments-horizontal',
       },
       {
-        title: 'Fast Loading Times',
-        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
+        title: 'Performance Optimization',
+        description: 'Ensuring fast loading times and optimal performance across all devices and platforms.',
         icon: 'tabler:rocket',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: 'Security Best Practices',
         description:
-          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
+          'Implementing robust security measures to protect user data and maintain application integrity.',
         icon: 'tabler:arrows-right-left',
       },
       {
-        title: 'Compatibility',
-        description: 'The templates work seamlessly across various content management systems and website builders.',
+        title: 'Continuous Innovation',
+        description: 'Staying updated with the latest technologies and trends to deliver cutting-edge solutions.',
         icon: 'tabler:plug-connected',
       },
     ]}
@@ -225,34 +224,34 @@ const metadata = {
     title="Frequently Asked Questions"
     items={[
       {
-        title: 'What are landing page templates?',
+        title: 'What types of products have you developed?',
         description:
-          'Landing page templates are pre-designed web page layouts that are specifically created to serve as a foundation for building effective landing pages. These templates are designed to capture the attention of visitors and guide them towards a specific action or goal, such as signing up for a newsletter, making a purchase, or downloading a resource.',
+          'I have developed a wide range of products including mobile applications, web platforms, productivity tools, e-commerce solutions, and custom business software. Each product is tailored to solve specific problems and meet unique user needs.',
       },
       {
-        title: 'Why should I use a template?',
+        title: 'How do you approach new projects?',
         description:
-          'Some of the advantages are that they provide a ready-to-use structure,  saving you significant time. Are designed with user-friendliness in mind and provide a cost-effective alternative, saving you money while still delivering a quality result.',
+          'I follow a collaborative approach that starts with understanding your requirements, planning the architecture, developing iteratively with regular feedback, and ensuring quality through testing before deployment.',
       },
       {
-        title: 'Can I preview templates before buying?',
+        title: 'Can you work on existing projects?',
         description:
-          'Yes, the templates allow you to preview them before making a purchase. There is a "Demo" button associated with each template.',
+          'Yes, I can help improve, maintain, or extend existing projects. I can review code, fix issues, add new features, or help migrate to newer technologies.',
       },
       {
-        title: 'Do I need technical skills to use a template?',
+        title: 'What technologies do you specialize in?',
         description:
-          'Advanced technical skills are not required to use a template, but having a basic understanding of web navigation and familiarity with using online tools can still be beneficial. If you have more specific customization needs, you might need to consult guides or reach out to customer support for assistance.',
+          'I work with modern web technologies (React, Vue, Node.js), mobile development (React Native, Flutter), databases, cloud services, and various APIs. I choose the best technology stack for each project.',
       },
       {
-        title: 'Can I use the template on multiple websites?',
+        title: 'How do you ensure project quality?',
         description:
-          'No, the template comes with a single-use license, meaning you can use the template on one website or project only. Using the template on additional websites would require purchasing additional licenses.',
+          'Quality is ensured through comprehensive testing, code reviews, performance optimization, security audits, and ongoing maintenance. I also provide documentation and support for smooth project handover.',
       },
       {
-        title: 'What if I need help with customization?',
+        title: 'What is your development process?',
         description:
-          "The templates provides a comprehensive step-by-step guide that walk you through the customization process. If you still have doubts, you can reach out to our customer support team. They can answer your questions, provide guidance on customization, and address any issues you're facing.",
+          "My process includes requirement analysis, design planning, development sprints, regular client communication, testing phases, and deployment. I maintain transparency throughout the project lifecycle.",
       },
     ]}
   >
@@ -264,8 +263,8 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Let us know how we can help"
-    subtitle="We’re here to help and answer any question you might have."
+    title="Let's discuss your project"
+    subtitle="I'm here to help bring your ideas to life and answer any questions about development services."
     columns={4}
     items={[
       {
@@ -318,17 +317,16 @@ const metadata = {
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Get templates',
+        text: 'View Projects',
         href: 'https://github.com/luka2chat',
         icon: 'tabler:download',
       },
     ]}
   >
-    <Fragment slot="title">Be a part of our vision</Fragment>
+    <Fragment slot="title">Ready to start your project?</Fragment>
 
     <Fragment slot="subtitle">
-      Discover a dynamic work environment, unparalleled growth opportunities, and the chance to make a meaningful
-      impact.
+      Let's collaborate to turn your ideas into reality. I'm here to help you build innovative solutions that make a difference.
     </Fragment>
   </CallToAction>
 </Layout>
