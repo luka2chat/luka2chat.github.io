@@ -3,8 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # 移除 pull_request 触发器，避免重复构建
+  # pull_request:
+  #   branches: [ main ]
 
 permissions:
   contents: read
@@ -13,7 +14,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true  # 改为 true，取消正在进行的构建
 
 jobs:
   build:
