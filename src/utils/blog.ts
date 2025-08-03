@@ -476,3 +476,57 @@ export const getStaticPathsBlogPostWithLang = async (lang: Language = 'en') => {
     props: { post },
   }));
 };
+
+/** 获取博客分类的静态路径（支持多语言） */
+export const getStaticPathsBlogCategoryWithLang = async ({ paginate }: { paginate: PaginateFunction }, lang: Language = 'en') => {
+  if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
+
+  const posts = await fetchPostsByLanguage(lang);
+  const categories = {};
+  posts.map((post) => {
+    if (post.category?.slug) {
+      categories[post.category?.slug] = post.category;
+    }
+  });
+
+  const basePath = lang === 'en' ? CATEGORY_BASE : `${lang}/${CATEGORY_BASE}`;
+
+  return Array.from(Object.keys(categories)).flatMap((categorySlug) =>
+    paginate(
+      posts.filter((post) => post.category?.slug && categorySlug === post.category?.slug),
+      {
+        params: { category: categorySlug, blog: basePath || undefined },
+        pageSize: blogPostsPerPage,
+        props: { category: categories[categorySlug] },
+      }
+    )
+  );
+};
+
+/** 获取博客标签的静态路径（支持多语言） */
+export const getStaticPathsBlogTagWithLang = async ({ paginate }: { paginate: PaginateFunction }, lang: Language = 'en') => {
+  if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
+
+  const posts = await fetchPostsByLanguage(lang);
+  const tags = {};
+  posts.map((post) => {
+    if (Array.isArray(post.tags)) {
+      post.tags.map((tag) => {
+        tags[tag?.slug] = tag;
+      });
+    }
+  });
+
+  const basePath = lang === 'en' ? TAG_BASE : `${lang}/${TAG_BASE}`;
+
+  return Array.from(Object.keys(tags)).flatMap((tagSlug) =>
+    paginate(
+      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.slug === tagSlug)),
+      {
+        params: { tag: tagSlug, blog: basePath || undefined },
+        pageSize: blogPostsPerPage,
+        props: { tag: tags[tagSlug] },
+      }
+    )
+  );
+};

@@ -1,6 +1,7 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { blogTagRobots, getStaticPathsBlogTag } from '~/utils/blog';
+import { blogTagRobots, getStaticPathsBlogTag, getStaticPathsBlogTagWithLang } from '~/utils/blog';
+import { getLangFromUrl } from '~/utils/i18n';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
@@ -10,7 +11,10 @@ import Pagination from '~/components/blog/Pagination.astro';
 export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  return await getStaticPathsBlogTag({ paginate });
+  const englishPaths = await getStaticPathsBlogTagWithLang({ paginate }, 'en');
+  const chinesePaths = await getStaticPathsBlogTagWithLang({ paginate }, 'zh');
+  
+  return [...englishPaths, ...chinesePaths];
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
@@ -19,8 +23,14 @@ const { page, tag } = Astro.props as Props;
 
 const currentPage = page.currentPage ?? 1;
 
+// 检测当前语言
+const lang = getLangFromUrl(Astro.url);
+
+const tagTitle = lang === 'zh' ? `标签：${tag.title}` : `Tag: ${tag.title}`;
+const pageText = lang === 'zh' ? '页' : 'Page';
+
 const metadata = {
-  title: `Posts by tag '${tag.title}'${currentPage > 1 ? ` — Page ${currentPage} ` : ''}`,
+  title: `${lang === 'zh' ? '标签' : 'Posts by tag'} '${tag.title}'${currentPage > 1 ? ` — ${pageText} ${currentPage}` : ''}`,
   robots: {
     index: blogTagRobots?.index,
     follow: blogTagRobots?.follow,
@@ -30,7 +40,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline>Tag: {tag.title}</Headline>
+    <Headline>{tagTitle}</Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
