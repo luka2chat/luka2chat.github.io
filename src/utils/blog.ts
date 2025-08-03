@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
+import slugify from 'slugify';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
 import type { Language } from './i18n';
 
@@ -304,10 +305,9 @@ const getNormalizedPostWithLang = async (post: CollectionEntry<'post'>, baseSlug
   if (baseSlug) {
     slug = cleanSlug(baseSlug);
   } else {
-    // 从id中提取baseSlug，移除zh后缀
+    // 从id中提取baseSlug，移除.zh.后缀
     const postId = id.split('/').pop() || id;
-    const cleanId = postId.replace(/zh$/, '');
-    slug = cleanSlug(cleanId);
+    slug = cleanSlug(postId);
   }
   const publishDate = new Date(rawPublishDate);
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
@@ -364,26 +364,29 @@ const loadWithLanguage = async function (lang: Language = 'en'): Promise<Array<P
   const posts = await getCollection('post');
   
   // 创建语言感知的文章映射
-  const postMap = new Map<string, CollectionEntry<'post'>>();
-  const langPosts = new Map<string, CollectionEntry<'post'>>();
+  const postMap = new Map<string, CollectionEntry<'post'>>(); // 全部文章
+  const langPosts = new Map<string, CollectionEntry<'post'>>(); // 语种下的文章
   
   // 首先处理所有文章，按语言分类
   // 第一遍：收集所有中文文章和它们的baseSlug
   posts.forEach(post => {
-    const id = post.id.split('/').pop() || post.id;
-    if (id.endsWith('zh')) {
-      const baseSlug = id.replace(/zh$/, '');
+    const path = post.filePath || 'default';
+    const id = path.split('/').pop() || 'default';
+    if (path.endsWith('.zh.md')) {
+      const baseSlug = slugify(id.replace('.zh.md', ''));
       langPosts.set(baseSlug, post);
     }
   });
   
   // 第二遍：收集英文文章，排除已有中文版本的
   posts.forEach(post => {
-    const id = post.id.split('/').pop() || post.id;
-    if (!id.endsWith('zh')) {
+    const path = post.filePath || 'default';
+    const id = path.split('/').pop() || 'default';
+    if (!id.endsWith('.zh.md')) {
       // 检查是否已有对应的中文版本
-      if (!langPosts.has(id)) {
-        postMap.set(id, post);
+      const slug = slugify(id.replace('.md', ''))
+      if (!postMap.has(slug)) {
+        postMap.set(slug, post);
       }
     }
   });
