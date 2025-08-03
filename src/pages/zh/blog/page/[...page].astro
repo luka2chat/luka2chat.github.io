@@ -1,0 +1,52 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+
+import { fetchPosts } from '~/utils/blog';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await fetchPosts();
+  
+  return paginate(posts, {
+    pageSize: 6,
+  });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props as Props;
+const currentPage = page.currentPage ?? 1;
+
+const metadata = {
+  title: `博客${currentPage > 1 ? ` — 第 ${currentPage} 页` : ''}`,
+  description: '探索我们的博客，了解最新的技术趋势、开发教程和行业见解。',
+  robots: {
+    index: currentPage === 1,
+    follow: true,
+  },
+  openGraph: {
+    type: 'blog',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline
+      subtitle="探索最新的技术趋势、开发教程、资源和其他与软件开发相关的有趣内容"
+    >
+      博客
+    </Headline>
+    <BlogList posts={page.data} />
+    <Pagination 
+      prevUrl={page.url.prev ? `/zh/blog${page.url.prev}` : undefined}
+      nextUrl={page.url.next ? `/zh/blog${page.url.next}` : undefined}
+    />
+  </section>
+</Layout>
