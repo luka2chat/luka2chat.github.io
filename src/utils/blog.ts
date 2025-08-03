@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
+import type { Language } from './i18n';
 
 const generatePermalink = async ({
   id,
@@ -279,3 +280,194 @@ export async function getRelatedPosts(originalPost: Post, maxResults: number = 4
 
   return selectedPosts;
 }
+
+// 自定义的多语言文章标准化函数
+const getNormalizedPostWithLang = async (post: CollectionEntry<'post'>, baseSlug?: string): Promise<Post> => {
+  const { id, data } = post;
+  const { Content, remarkPluginFrontmatter } = await render(post);
+
+  const {
+    publishDate: rawPublishDate = new Date(),
+    updateDate: rawUpdateDate,
+    title,
+    excerpt,
+    image,
+    tags: rawTags = [],
+    category: rawCategory,
+    author,
+    draft = false,
+    metadata = {},
+  } = data;
+
+  // 使用提供的baseSlug或从id生成，确保移除语言后缀
+  let slug: string;
+  if (baseSlug) {
+    slug = cleanSlug(baseSlug);
+  } else {
+    // 从id中提取baseSlug，移除.zh.md或.md后缀
+    const cleanId = id.replace(/\.zh\.md$/, '').replace(/\.md$/, '');
+    slug = cleanSlug(cleanId);
+  }
+  const publishDate = new Date(rawPublishDate);
+  const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
+
+  const category = rawCategory
+    ? {
+        slug: cleanSlug(rawCategory),
+        title: rawCategory,
+      }
+    : undefined;
+
+  const tags = rawTags.map((tag: string) => ({
+    slug: cleanSlug(tag),
+    title: tag,
+  }));
+
+  return {
+    id: id,
+    slug: slug,
+    permalink: await generatePermalink({ id: baseSlug || id, slug, publishDate, category: category?.slug }),
+
+    publishDate: publishDate,
+    updateDate: updateDate,
+
+    title: title,
+    excerpt: excerpt,
+    image: image,
+
+    category: category,
+    tags: tags,
+    author: author,
+
+    draft: draft,
+
+    metadata,
+
+    Content: Content,
+    content: post.body,
+
+    readingTime: remarkPluginFrontmatter?.readingTime ?? 0,
+  };
+};
+
+// 多语言支持函数
+const loadWithLanguage = async function (lang: Language = 'en'): Promise<Array<Post>> {
+  const posts = await getCollection('post');
+  
+  // 创建语言感知的文章映射
+  const postMap = new Map<string, CollectionEntry<'post'>>();
+  const langPosts = new Map<string, CollectionEntry<'post'>>();
+  
+  // 首先处理所有文章，按语言分类
+  posts.forEach(post => {
+    if (post.id.endsWith('.zh.md')) {
+      // 中文文章
+      const baseSlug = post.id.replace('.zh.md', '');
+      langPosts.set(baseSlug, post);
+    } else if (post.id.endsWith('.md')) {
+      // 英文文章（默认）
+      const baseSlug = post.id.replace('.md', '');
+      postMap.set(baseSlug, post);
+    }
+  });
+  
+  // 根据语言选择合适的文章
+  const selectedPosts: Array<{post: CollectionEntry<'post'>, baseSlug: string}> = [];
+  
+  if (lang === 'zh') {
+    // 中文：优先使用中文版本，降级到英文版本
+    postMap.forEach((englishPost, baseSlug) => {
+      const chinesePost = langPosts.get(baseSlug);
+      selectedPosts.push({
+        post: chinesePost || englishPost,
+        baseSlug: baseSlug
+      });
+    });
+    
+    // 添加仅有中文版本的文章
+    langPosts.forEach((chinesePost, baseSlug) => {
+      if (!postMap.has(baseSlug)) {
+        selectedPosts.push({
+          post: chinesePost,
+          baseSlug: baseSlug
+        });
+      }
+    });
+  } else {
+    // 英文：只使用英文版本
+    postMap.forEach((post, baseSlug) => {
+      selectedPosts.push({
+        post: post,
+        baseSlug: baseSlug
+      });
+    });
+  }
+  
+  const normalizedPosts = selectedPosts.map(async ({post, baseSlug}) => 
+    await getNormalizedPostWithLang(post, baseSlug)
+  );
+
+  const results = (await Promise.all(normalizedPosts))
+    .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
+    .filter((post) => !post.draft);
+
+  return results;
+};
+
+let _zhPosts: Array<Post>;
+let _enPosts: Array<Post>;
+
+/** 获取指定语言的文章列表 */
+export const fetchPostsByLanguage = async (lang: Language = 'en'): Promise<Array<Post>> => {
+  if (lang === 'zh') {
+    if (!_zhPosts) {
+      _zhPosts = await loadWithLanguage('zh');
+    }
+    return _zhPosts;
+  } else {
+    if (!_enPosts) {
+      _enPosts = await loadWithLanguage('en');
+    }
+    return _enPosts;
+  }
+};
+
+/** 获取博客列表的静态路径（支持多语言） */
+export const getStaticPathsBlogListWithLang = async ({ paginate }: { paginate: PaginateFunction }, lang: Language = 'en') => {
+  if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
+  
+  const posts = await fetchPostsByLanguage(lang);
+  const basePath = lang === 'en' ? BLOG_BASE : `${lang}/${BLOG_BASE}`;
+  
+  return paginate(posts, {
+    params: { blog: basePath || undefined },
+    pageSize: blogPostsPerPage,
+  });
+};
+
+/** 获取博客文章的静态路径（支持多语言） */
+export const getStaticPathsBlogPostWithLang = async (lang: Language = 'en') => {
+  if (!isBlogEnabled || !isBlogPostRouteEnabled) return [];
+  
+  const posts = await fetchPostsByLanguage(lang);
+  
+  return posts.flatMap((post) => {
+    if (lang === 'en') {
+      // 英文版本：直接使用原permalink
+      return {
+        params: {
+          blog: post.permalink,
+        },
+        props: { post },
+      };
+    } else {
+      // 中文版本：在permalink前加语言前缀
+      return {
+        params: {
+          blog: `${lang}/${post.permalink}`,
+        },
+        props: { post },
+      };
+    }
+  });
+};
