@@ -282,7 +282,7 @@ export async function getRelatedPosts(originalPost: Post, maxResults: number = 4
 }
 
 // 自定义的多语言文章标准化函数
-const getNormalizedPostWithLang = async (post: CollectionEntry<'post'>, baseSlug?: string): Promise<Post> => {
+const getNormalizedPostWithLang = async (post: CollectionEntry<'post'>, baseSlug?: string, lang: Language = 'en'): Promise<Post> => {
   const { id, data } = post;
   const { Content, remarkPluginFrontmatter } = await render(post);
 
@@ -304,8 +304,9 @@ const getNormalizedPostWithLang = async (post: CollectionEntry<'post'>, baseSlug
   if (baseSlug) {
     slug = cleanSlug(baseSlug);
   } else {
-    // 从id中提取baseSlug，移除.zh.md或.md后缀
-    const cleanId = id.replace(/\.zh\.md$/, '').replace(/\.md$/, '');
+    // 从id中提取baseSlug，移除zh后缀
+    const postId = id.split('/').pop() || id;
+    const cleanId = postId.replace(/zh$/, '');
     slug = cleanSlug(cleanId);
   }
   const publishDate = new Date(rawPublishDate);
@@ -323,10 +324,18 @@ const getNormalizedPostWithLang = async (post: CollectionEntry<'post'>, baseSlug
     title: tag,
   }));
 
+  // 生成带blog前缀的permalink
+  let permalink: string;
+  if (lang === 'zh') {
+    permalink = `zh/blog/${slug}`;
+  } else {
+    permalink = `blog/${slug}`;
+  }
+
   return {
     id: id,
     slug: slug,
-    permalink: await generatePermalink({ id: baseSlug || id, slug, publishDate, category: category?.slug }),
+    permalink: permalink,
 
     publishDate: publishDate,
     updateDate: updateDate,
@@ -359,15 +368,23 @@ const loadWithLanguage = async function (lang: Language = 'en'): Promise<Array<P
   const langPosts = new Map<string, CollectionEntry<'post'>>();
   
   // 首先处理所有文章，按语言分类
+  // 第一遍：收集所有中文文章和它们的baseSlug
   posts.forEach(post => {
-    if (post.id.endsWith('.zh.md')) {
-      // 中文文章
-      const baseSlug = post.id.replace('.zh.md', '');
+    const id = post.id.split('/').pop() || post.id;
+    if (id.endsWith('zh')) {
+      const baseSlug = id.replace(/zh$/, '');
       langPosts.set(baseSlug, post);
-    } else if (post.id.endsWith('.md')) {
-      // 英文文章（默认）
-      const baseSlug = post.id.replace('.md', '');
-      postMap.set(baseSlug, post);
+    }
+  });
+  
+  // 第二遍：收集英文文章，排除已有中文版本的
+  posts.forEach(post => {
+    const id = post.id.split('/').pop() || post.id;
+    if (!id.endsWith('zh')) {
+      // 检查是否已有对应的中文版本
+      if (!langPosts.has(id)) {
+        postMap.set(id, post);
+      }
     }
   });
   
@@ -404,7 +421,7 @@ const loadWithLanguage = async function (lang: Language = 'en'): Promise<Array<P
   }
   
   const normalizedPosts = selectedPosts.map(async ({post, baseSlug}) => 
-    await getNormalizedPostWithLang(post, baseSlug)
+    await getNormalizedPostWithLang(post, baseSlug, lang)
   );
 
   const results = (await Promise.all(normalizedPosts))
@@ -414,8 +431,9 @@ const loadWithLanguage = async function (lang: Language = 'en'): Promise<Array<P
   return results;
 };
 
-let _zhPosts: Array<Post>;
-let _enPosts: Array<Post>;
+// 清理缓存以便重新测试
+let _zhPosts: Array<Post> | null = null;
+let _enPosts: Array<Post> | null = null;
 
 /** 获取指定语言的文章列表 */
 export const fetchPostsByLanguage = async (lang: Language = 'en'): Promise<Array<Post>> => {
@@ -451,23 +469,10 @@ export const getStaticPathsBlogPostWithLang = async (lang: Language = 'en') => {
   
   const posts = await fetchPostsByLanguage(lang);
   
-  return posts.flatMap((post) => {
-    if (lang === 'en') {
-      // 英文版本：直接使用原permalink
-      return {
-        params: {
-          blog: post.permalink,
-        },
-        props: { post },
-      };
-    } else {
-      // 中文版本：在permalink前加语言前缀
-      return {
-        params: {
-          blog: `${lang}/${post.permalink}`,
-        },
-        props: { post },
-      };
-    }
-  });
+  return posts.flatMap((post) => ({
+    params: {
+      blog: post.permalink,
+    },
+    props: { post },
+  }));
 };

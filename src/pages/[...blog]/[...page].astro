@@ -13,7 +13,7 @@ import { getLangFromUrl } from '~/utils/i18n';
 export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const englishPaths = await getStaticPathsBlogList({ paginate });
+  const englishPaths = await getStaticPathsBlogListWithLang({ paginate }, 'en');
   const chinesePaths = await getStaticPathsBlogListWithLang({ paginate }, 'zh');
   
   return [...englishPaths, ...chinesePaths];
