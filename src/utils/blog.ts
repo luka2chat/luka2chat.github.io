@@ -167,6 +167,19 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
   }, []);
 };
 
+export const findPostsByIdsWithLang = async (ids: Array<string>, lang: Language = 'en'): Promise<Array<Post>> => {
+  if (!Array.isArray(ids)) return [];
+
+  const posts = await fetchPostsByLanguage(lang);
+
+  return ids.reduce(function (r: Array<Post>, id: string) {
+    posts.some(function (post: Post) {
+      return id === post.id && r.push(post);
+    });
+    return r;
+  }, []);
+};
+
 /** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
   const _count = count || 4;
@@ -248,6 +261,42 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
 /** */
 export async function getRelatedPosts(originalPost: Post, maxResults: number = 4): Promise<Post[]> {
   const allPosts = await fetchPosts();
+  const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);
+
+  const postsWithScores = allPosts.reduce((acc: { post: Post; score: number }[], iteratedPost: Post) => {
+    if (iteratedPost.slug === originalPost.slug) return acc;
+
+    let score = 0;
+    if (iteratedPost.category && originalPost.category && iteratedPost.category.slug === originalPost.category.slug) {
+      score += 5;
+    }
+
+    if (iteratedPost.tags) {
+      iteratedPost.tags.forEach((tag) => {
+        if (originalTagsSet.has(tag.slug)) {
+          score += 1;
+        }
+      });
+    }
+
+    acc.push({ post: iteratedPost, score });
+    return acc;
+  }, []);
+
+  postsWithScores.sort((a, b) => b.score - a.score);
+
+  const selectedPosts: Post[] = [];
+  let i = 0;
+  while (selectedPosts.length < maxResults && i < postsWithScores.length) {
+    selectedPosts.push(postsWithScores[i].post);
+    i++;
+  }
+
+  return selectedPosts;
+}
+
+export async function getRelatedPostsWithLang(originalPost: Post, maxResults: number = 4, lang: Language = 'en'): Promise<Post[]> {
+  const allPosts = await fetchPostsByLanguage(lang);
   const originalTagsSet = new Set(originalPost.tags ? originalPost.tags.map((tag) => tag.slug) : []);
 
   const postsWithScores = allPosts.reduce((acc: { post: Post; score: number }[], iteratedPost: Post) => {
