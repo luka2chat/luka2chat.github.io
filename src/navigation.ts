@@ -1,5 +1,6 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 import type { Language } from './utils/i18n';
+import { getLocalizedPath } from './utils/i18n';
 
 // 多语言导航数据
 export const getHeaderData = (lang: Language = 'en') => {
@@ -24,38 +25,38 @@ export const getHeaderData = (lang: Language = 'en') => {
     links: [
       {
         text: texts.home,
-        href: getPermalink('/')
+        href: getLocalizedPath('/', lang)
       },
     // {
     //   text: 'Pages',
     //   links: [
     //     {
     //       text: 'Features (Anchor Link)',
-    //       href: getPermalink('/#features'),
+    //       href: getLocalizedPath('/#features', lang),
     //     },
     //     {
     //       text: 'Services',
-    //       href: getPermalink('/services'),
+    //       href: getLocalizedPath('/services', lang),
     //     },
     //     {
     //       text: 'Pricing',
-    //       href: getPermalink('/pricing'),
+    //       href: getLocalizedPath('/pricing', lang),
     //     },
     //     {
     //       text: 'About us',
-    //       href: getPermalink('/about'),
+    //       href: getLocalizedPath('/about', lang),
     //     },
     //     {
     //       text: 'Contact',
-    //       href: getPermalink('/contact'),
+    //       href: getLocalizedPath('/contact', lang),
     //     },
     //     {
     //       text: 'Terms',
-    //       href: getPermalink('/terms'),
+    //       href: getLocalizedPath('/terms', lang),
     //     },
     //     {
     //       text: 'Privacy policy',
-    //       href: getPermalink('/privacy'),
+    //       href: getLocalizedPath('/privacy', lang),
     //     },
     //   ],
     // },
@@ -64,37 +65,37 @@ export const getHeaderData = (lang: Language = 'en') => {
     //   links: [
     //     {
     //       text: 'Lead Generation',
-    //       href: getPermalink('/landing/lead-generation'),
+    //       href: getLocalizedPath('/landing/lead-generation', lang),
     //     },
     //     {
     //       text: 'Long-form Sales',
-    //       href: getPermalink('/landing/sales'),
+    //       href: getLocalizedPath('/landing/sales', lang),
     //     },
     //     {
     //       text: 'Click-Through',
-    //       href: getPermalink('/landing/click-through'),
+    //       href: getLocalizedPath('/landing/click-through', lang),
     //     },
     //     {
     //       text: 'Product Details (or Services)',
-    //       href: getPermalink('/landing/product'),
+    //       href: getLocalizedPath('/landing/product', lang),
     //     },
     //     {
     //       text: 'Coming Soon or Pre-Launch',
-    //       href: getPermalink('/landing/pre-launch'),
+    //       href: getLocalizedPath('/landing/pre-launch', lang),
     //     },
     //     {
     //       text: 'Subscription',
-    //       href: getPermalink('/landing/subscription'),
+    //       href: getLocalizedPath('/landing/subscription', lang),
     //     },
     //   ],
     // },
       {
         text: texts.blog,
-        href: getBlogPermalink()
+        href: getLocalizedPath('/blog', lang)
       },
       {
         text: texts.contact,
-        href: getPermalink('/contact')
+        href: getLocalizedPath('/contact', lang)
       }
     ],
     actions: [{ text: texts.download, href: 'https://github.com/luka2chat', target: '_blank' }],
@@ -216,8 +217,8 @@ export const getFooterData = (lang: Language = 'en') => {
       },
     ],
     secondaryLinks: [
-      { text: texts.terms, href: getPermalink('/terms') },
-      { text: texts.privacy, href: getPermalink('/privacy') },
+      { text: texts.terms, href: getLocalizedPath('/terms', lang) },
+      { text: texts.privacy, href: getLocalizedPath('/privacy', lang) },
     ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },

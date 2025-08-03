@@ -48,33 +48,78 @@ const alternatePaths = getAlternateLanguagePaths(currentPath, currentLang);
 </div>
 
 <script>
+  let languageSelectorInitialized = false;
+  let currentButton = null;
+  let currentMenu = null;
+  let outsideClickHandler = null;
+
+  function closeMenu() {
+    if (currentMenu && currentButton) {
+      currentMenu.classList.add('hidden');
+      currentButton.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function toggleMenu(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    if (!currentMenu || !currentButton) return;
+    
+    const isHidden = currentMenu.classList.contains('hidden');
+    if (isHidden) {
+      currentMenu.classList.remove('hidden');
+      currentButton.setAttribute('aria-expanded', 'true');
+    } else {
+      closeMenu();
+    }
+  }
+
+  function handleOutsideClick(event) {
+    if (!currentButton || !currentMenu) return;
+    
+    if (!currentButton.contains(event.target) && !currentMenu.contains(event.target)) {
+      closeMenu();
+    }
+  }
+
   function setupLanguageSelector() {
+    // 如果已经初始化过，先清理旧的事件监听器
+    if (languageSelectorInitialized && currentButton && outsideClickHandler) {
+      currentButton.removeEventListener('click', toggleMenu);
+      document.removeEventListener('click', outsideClickHandler);
+    }
+
     const button = document.getElementById('language-menu-button');
     const menu = document.getElementById('language-menu');
     
     if (!button || !menu) return;
     
-    button.addEventListener('click', () => {
-      const isHidden = menu.classList.contains('hidden');
-      if (isHidden) {
-        menu.classList.remove('hidden');
-        button.setAttribute('aria-expanded', 'true');
-      } else {
-        menu.classList.add('hidden');
-        button.setAttribute('aria-expanded', 'false');
-      }
-    });
+    currentButton = button;
+    currentMenu = menu;
     
-    // 点击外部关闭菜单
-    document.addEventListener('click', (event) => {
-      if (!button.contains(event.target as Node) && !menu.contains(event.target as Node)) {
-        menu.classList.add('hidden');
-        button.setAttribute('aria-expanded', 'false');
-      }
-    });
+    // 添加按钮点击事件
+    button.addEventListener('click', toggleMenu);
+    
+    // 添加外部点击事件
+    outsideClickHandler = handleOutsideClick;
+    document.addEventListener('click', outsideClickHandler);
+    
+    languageSelectorInitialized = true;
   }
   
-  // 初始化和页面导航时都要设置
+  // 初始化
   setupLanguageSelector();
+  
+  // 页面导航时重新设置
   document.addEventListener('astro:page-load', setupLanguageSelector);
+  
+  // 页面卸载时清理
+  document.addEventListener('astro:before-preparation', () => {
+    if (currentButton && outsideClickHandler) {
+      currentButton.removeEventListener('click', toggleMenu);
+      document.removeEventListener('click', outsideClickHandler);
+    }
+    languageSelectorInitialized = false;
+  });
 </script>
