@@ -10,12 +10,14 @@ import type { Post } from '~/types';
 import { getPermalink } from '~/utils/permalinks';
 import { findImage } from '~/utils/images';
 import { getFormattedDate } from '~/utils/utils';
+import { getLangFromUrl } from '~/utils/i18n';
 
 export interface Props {
   post: Post;
 }
 
 const { post } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 const image = (await findImage(post.image)) as ImageMetadata | undefined;
 
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
@@ -82,7 +84,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
               <>
                 {' '}
                 ·{' '}
-                <a class="hover:underline" href={getPermalink(post.category.slug, 'category')}>
+                <a class="hover:underline" href={getPermalink(post.category.slug, 'category', lang)}>
                   {post.category.title}
                 </a>
               </>

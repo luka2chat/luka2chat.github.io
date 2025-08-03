@@ -4,8 +4,12 @@ import { languages, getLangFromUrl, getAlternateLanguagePaths } from '~/utils/i1
 const currentLang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 const alternatePaths = getAlternateLanguagePaths(currentPath, currentLang);
+
+// 检查是否是tag或category页面，如果是则不显示语言切换
+const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.includes('/category/');
 ---
 
+{!isTagOrCategoryPage && (
 <div class="relative inline-block text-left">
   <div>
     <button
@@ -46,12 +50,13 @@ const alternatePaths = getAlternateLanguagePaths(currentPath, currentLang);
     </div>
   </div>
 </div>
+)}
 
 <script>
   let languageSelectorInitialized = false;
-  let currentButton = null;
-  let currentMenu = null;
-  let outsideClickHandler = null;
+  let currentButton: HTMLElement | null = null;
+  let currentMenu: HTMLElement | null = null;
+  let outsideClickHandler: ((event: Event) => void) | null = null;
 
   function closeMenu() {
     if (currentMenu && currentButton) {
@@ -60,7 +65,7 @@ const alternatePaths = getAlternateLanguagePaths(currentPath, currentLang);
     }
   }
 
-  function toggleMenu(event) {
+  function toggleMenu(event: Event) {
     event.preventDefault();
     event.stopPropagation();
     
@@ -75,10 +80,11 @@ const alternatePaths = getAlternateLanguagePaths(currentPath, currentLang);
     }
   }
 
-  function handleOutsideClick(event) {
+  function handleOutsideClick(event: Event) {
     if (!currentButton || !currentMenu) return;
     
-    if (!currentButton.contains(event.target) && !currentMenu.contains(event.target)) {
+    const target = event.target as Node;
+    if (!currentButton.contains(target) && !currentMenu.contains(target)) {
       closeMenu();
     }
   }
