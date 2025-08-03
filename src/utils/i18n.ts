@@ -152,9 +152,10 @@ export function getLangFromUrl(url: URL): Language {
 // 获取本地化路径
 export function getLocalizedPath(path: string, lang: Language): string {
   if (lang === defaultLang) {
-    return path;
+    return path === '/' ? '/' : path.replace(/\/$/, '');
   }
-  return `/${lang}${path}`;
+  const cleanPath = path === '/' ? '' : path.replace(/\/$/, '');
+  return `/${lang}${cleanPath}`;
 }
 
 // 获取其他语言的路径
