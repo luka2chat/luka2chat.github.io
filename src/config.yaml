@@ -9,7 +9,7 @@ metadata:
   title:
     default: Luka2Chat
     template: '%s — Luka2Chat'
-  description: "🚀 Luka2Chat - 你的AI聊天助手，提供智能对话和个性化服务。"
+  description: "🚀 Luka2Chat - Your AI Chat Assistant, providing intelligent conversations and personalized services."
   robots:
     index: true
     follow: true
@@ -28,6 +28,13 @@ metadata:
 i18n:
   language: en
   textDirection: ltr
+  locales:
+    en:
+      language: en
+      textDirection: ltr
+    zh:
+      language: zh
+      textDirection: ltr
 
 apps:
   blog:

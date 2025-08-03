@@ -26,6 +26,14 @@ export default defineConfig({
   site: 'https://luka2chat.com',
   base: '/',
 
+  i18n: {
+    defaultLocale: 'zh',
+    locales: ['zh', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,

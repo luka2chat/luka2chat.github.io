@@ -1,29 +1,31 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import type { Language } from './utils/i18n';
 
-export const headerData = {
-  links: [
-    {
-      text: 'Home',
-      href: getPermalink('/')
-      // links: [
-      //   {
-      //     text: 'SaaS',
-      //     href: getPermalink('/homes/saas'),
-      //   },
-      //   {
-      //     text: 'Startup',
-      //     href: getPermalink('/homes/startup'),
-      //   },
-      //   {
-      //     text: 'Mobile App',
-      //     href: getPermalink('/homes/mobile-app'),
-      //   },
-      //   {
-      //     text: 'Personal',
-      //     href: getPermalink('/homes/personal'),
-      //   },
-      // ],
+// 多语言导航数据
+export const getHeaderData = (lang: Language = 'en') => {
+  const navTexts = {
+    zh: {
+      home: '首页',
+      blog: '博客',
+      contact: '联系我们',
+      download: '下载'
     },
+    en: {
+      home: 'Home',
+      blog: 'Blog',
+      contact: 'Contact',
+      download: 'Download'
+    }
+  };
+
+  const texts = navTexts[lang];
+
+  return {
+    links: [
+      {
+        text: texts.home,
+        href: getPermalink('/')
+      },
     // {
     //   text: 'Pages',
     //   links: [
@@ -86,95 +88,137 @@ export const headerData = {
     //     },
     //   ],
     // },
-    {
-      text: 'Blog',
-      href: getBlogPermalink()
-      // links: [
-      //   {
-      //     text: 'Blog List',
-      //     href: getBlogPermalink(),
-      //   },
-      //   {
-      //     text: 'Article',
-      //     href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-      //   },
-      //   {
-      //     text: 'Article (with MDX)',
-      //     href: getPermalink('markdown-elements-demo-post', 'post'),
-      //   },
-      //   {
-      //     text: 'Category Page',
-      //     href: getPermalink('tutorials', 'category'),
-      //   },
-      //   {
-      //     text: 'Tag Page',
-      //     href: getPermalink('astro', 'tag'),
-      //   },
-      // ],
-    },
-    // {
-    //   text: 'Widgets',
-    //   href: '#',
-    // },
-    {
-      text: 'Contact',
-      href: getPermalink('/contact')
-    }
-  ],
-  actions: [{ text: 'Download', href: 'https://github.com/luka2chat', target: '_blank' }],
+      {
+        text: texts.blog,
+        href: getBlogPermalink()
+      },
+      {
+        text: texts.contact,
+        href: getPermalink('/contact')
+      }
+    ],
+    actions: [{ text: texts.download, href: 'https://github.com/luka2chat', target: '_blank' }],
+  };
 };
 
-export const footerData = {
-  links: [
-    {
-      title: 'Product',
-      links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
-      ],
+// 保持向后兼容性
+export const headerData = getHeaderData('en');
+
+export const getFooterData = (lang: Language = 'en') => {
+  const footerTexts = {
+    zh: {
+      product: '产品',
+      platform: '平台', 
+      support: '支持',
+      company: '公司',
+      features: '功能',
+      security: '安全',
+      team: '团队',
+      enterprise: '企业版',
+      customerStories: '客户案例',
+      pricing: '价格',
+      resources: '资源',
+      developerApi: '开发者API',
+      partners: '合作伙伴',
+      docs: '文档',
+      communityForum: '社区论坛',
+      professionalServices: '专业服务',
+      skills: '技能',
+      status: '状态',
+      about: '关于我们',
+      blog: '博客',
+      careers: '招聘',
+      press: '新闻',
+      inclusion: '包容性',
+      socialImpact: '社会影响',
+      shop: '商店',
+      terms: '使用条款',
+      privacy: '隐私政策'
     },
-    {
-      title: 'Platform',
-      links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
-      ],
-    },
-  ],
-  secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
-  ],
+    en: {
+      product: 'Product',
+      platform: 'Platform',
+      support: 'Support', 
+      company: 'Company',
+      features: 'Features',
+      security: 'Security',
+      team: 'Team',
+      enterprise: 'Enterprise',
+      customerStories: 'Customer stories',
+      pricing: 'Pricing',
+      resources: 'Resources',
+      developerApi: 'Developer API',
+      partners: 'Partners',
+      docs: 'Docs',
+      communityForum: 'Community Forum',
+      professionalServices: 'Professional Services',
+      skills: 'Skills',
+      status: 'Status',
+      about: 'About',
+      blog: 'Blog',
+      careers: 'Careers',
+      press: 'Press',
+      inclusion: 'Inclusion',
+      socialImpact: 'Social Impact',
+      shop: 'Shop',
+      terms: 'Terms',
+      privacy: 'Privacy Policy'
+    }
+  };
+
+  const texts = footerTexts[lang];
+
+  return {
+    links: [
+      {
+        title: texts.product,
+        links: [
+          { text: texts.features, href: '#' },
+          { text: texts.security, href: '#' },
+          { text: texts.team, href: '#' },
+          { text: texts.enterprise, href: '#' },
+          { text: texts.customerStories, href: '#' },
+          { text: texts.pricing, href: '#' },
+          { text: texts.resources, href: '#' },
+        ],
+      },
+      {
+        title: texts.platform,
+        links: [
+          { text: texts.developerApi, href: '#' },
+          { text: texts.partners, href: '#' },
+          { text: 'Atom', href: '#' },
+          { text: 'Electron', href: '#' },
+          { text: 'AstroWind Desktop', href: '#' },
+        ],
+      },
+      {
+        title: texts.support,
+        links: [
+          { text: texts.docs, href: '#' },
+          { text: texts.communityForum, href: '#' },
+          { text: texts.professionalServices, href: '#' },
+          { text: texts.skills, href: '#' },
+          { text: texts.status, href: '#' },
+        ],
+      },
+      {
+        title: texts.company,
+        links: [
+          { text: texts.about, href: '#' },
+          { text: texts.blog, href: '#' },
+          { text: texts.careers, href: '#' },
+          { text: texts.press, href: '#' },
+          { text: texts.inclusion, href: '#' },
+          { text: texts.socialImpact, href: '#' },
+          { text: texts.shop, href: '#' },
+        ],
+      },
+    ],
+    secondaryLinks: [
+      { text: texts.terms, href: getPermalink('/terms') },
+      { text: texts.privacy, href: getPermalink('/privacy') },
+    ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
@@ -182,11 +226,11 @@ export const footerData = {
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/luka2chat' },
   ],
-  // footNote: `
-  //   <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://onwidget.com/favicon/favicon-32x32.png" alt="onWidget logo" loading="lazy"></img>
-  //   Made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
-  // `,
-  footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://luka2chat.com/"> luka2chat</a> · All rights reserved.
-  `,
+    footNote: `
+      Made by <a class="text-blue-600 underline dark:text-muted" href="https://luka2chat.com/"> luka2chat</a> · All rights reserved.
+    `,
+  };
 };
+
+// 保持向后兼容性
+export const footerData = getFooterData('en');

@@ -1,0 +1,79 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: '联系我们',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="联系我们" title="让我们联系！" />
+
+  <ContactUs
+    id="form"
+    title="今天就给我们留言吧！"
+    subtitle="为了获得更快的答案，请查看我们的常见问题部分。您可能会在那里找到您正在寻找的解决方案！如果没有，我们的支持团队很乐意为您提供帮助。"
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: '姓名',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: '邮箱',
+      },
+    ]}
+    textarea={{
+      label: '消息',
+    }}
+    disclaimer={{
+      label:
+        '通过提交此联系表单，您承认并同意收集您的个人信息。',
+    }}
+    description="我们的支持团队通常在24个工作小时内回复。"
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="我们在这里帮助您！"
+    items={[
+      {
+        title: '通用支持',
+        description: `联系我们咨询账户管理、网站导航、支付问题、访问已购买模板或有关网站功能的一般问题。`,
+      },
+      {
+        title: '联系销售',
+        description:
+          '联系我们咨询有关购买、定制选项、商业使用许可、特定模板咨询等问题。',
+      },
+      {
+        title: '技术支持',
+        description:
+          '当遇到模板安装、编辑困难、软件兼容性问题或下载错误等技术挑战时，请与我们聊天。',
+      },
+      {
+        title: '电话',
+        description: '+1 (234) 567-890',
+        icon: 'tabler:headset',
+      },
+      {
+        title: '邮箱',
+        description: 'contact@support.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: '位置',
+        description: '中国北京朝阳区',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>
