@@ -1,5 +1,6 @@
 ---
 import { languages, getLangFromUrl, getAlternateLanguagePaths } from '~/utils/i18n';
+import { Icon } from 'astro-icon/components';
 
 const currentLang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
@@ -9,48 +10,48 @@ const alternatePaths = getAlternateLanguagePaths(currentPath, currentLang);
 const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.includes('/category/');
 ---
 
-{!isTagOrCategoryPage && (
-<div class="relative inline-block text-left">
-  <div>
-    <button
-      type="button"
-      class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700"
-      id="language-menu-button"
-      aria-expanded="false"
-      aria-haspopup="true"
-    >
-      {languages[currentLang]}
-      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-      </svg>
-    </button>
-  </div>
-
-  <div
-    class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:ring-gray-600 hidden"
-    role="menu"
-    aria-orientation="vertical"
-    aria-labelledby="language-menu-button"
-    id="language-menu"
-  >
-    <div class="py-1" role="none">
-      {Object.entries(languages).map(([code, name]) => (
-        <a
-          href={alternatePaths[code as keyof typeof languages]}
-          class={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
-            code === currentLang 
-              ? 'text-gray-900 font-medium dark:text-gray-100' 
-              : 'text-gray-700 dark:text-gray-300'
-          }`}
-          role="menuitem"
+{
+  !isTagOrCategoryPage && (
+    <div class="relative inline-block text-left">
+      <div>
+        <button
+          id="language-menu-button"
+          aria-expanded="false"
+          aria-haspopup="true"
+          type="button"
+          class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+          aria-label="Switch Language / 切换语言"
         >
-          {name}
-        </a>
-      ))}
+          <Icon name="tabler:language" class="w-5 h-5" />
+        </button>
+      </div>
+
+      <div
+        class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:ring-gray-600 hidden"
+        role="menu"
+        aria-orientation="vertical"
+        aria-labelledby="language-menu-button"
+        id="language-menu"
+      >
+        <div class="py-1" role="none">
+          {Object.entries(languages).map(([code, name]) => (
+            <a
+              href={alternatePaths[code as keyof typeof languages]}
+              class={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                code === currentLang
+                  ? 'text-gray-900 font-medium dark:text-gray-100'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+              role="menuitem"
+            >
+              {name}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-)}
+  )
+}
 
 <script>
   let languageSelectorInitialized = false;
@@ -68,9 +69,9 @@ const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.include
   function toggleMenu(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    
+
     if (!currentMenu || !currentButton) return;
-    
+
     const isHidden = currentMenu.classList.contains('hidden');
     if (isHidden) {
       currentMenu.classList.remove('hidden');
@@ -82,7 +83,7 @@ const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.include
 
   function handleOutsideClick(event: Event) {
     if (!currentButton || !currentMenu) return;
-    
+
     const target = event.target as Node;
     if (!currentButton.contains(target) && !currentMenu.contains(target)) {
       closeMenu();
@@ -98,28 +99,28 @@ const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.include
 
     const button = document.getElementById('language-menu-button');
     const menu = document.getElementById('language-menu');
-    
+
     if (!button || !menu) return;
-    
+
     currentButton = button;
     currentMenu = menu;
-    
+
     // 添加按钮点击事件
     button.addEventListener('click', toggleMenu);
-    
+
     // 添加外部点击事件
     outsideClickHandler = handleOutsideClick;
     document.addEventListener('click', outsideClickHandler);
-    
+
     languageSelectorInitialized = true;
   }
-  
+
   // 初始化
   setupLanguageSelector();
-  
+
   // 页面导航时重新设置
   document.addEventListener('astro:page-load', setupLanguageSelector);
-  
+
   // 页面卸载时清理
   document.addEventListener('astro:before-preparation', () => {
     if (currentButton && outsideClickHandler) {
