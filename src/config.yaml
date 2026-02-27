@@ -7,9 +7,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Luka2Chat
-    template: '%s — Luka2Chat'
-  description: "🚀 Luka2Chat - Your AI Chat Assistant, providing intelligent conversations and personalized services."
+    default: Luka2Chat - Independent Developer, AI & Software Solutions
+    template: '%s — Luka2Chat: AI & Software Solutions'
+  description: "Luka2Chat - Independent Developer Portfolio: Explore innovative software development, AI tools, and solutions to enhance your digital experience."
   robots:
     index: true
     follow: true

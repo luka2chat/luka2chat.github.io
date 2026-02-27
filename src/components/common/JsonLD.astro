@@ -1,0 +1,83 @@
+---
+import { SITE } from '~/config.yaml';
+
+const { metadata } = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Luka2Chat",
+  "url": SITE.site,
+  "sameAs": [
+    "https://github.com/luka2chat",
+    "https://twitter.com/luka2chat",
+    "https://www.linkedin.com/in/luka2chat/"
+  ],
+  "jobTitle": "Independent Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Self-Employed"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of products have you developed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I have developed a wide range of products including mobile applications, web platforms, productivity tools, e-commerce solutions, and custom business software. Each product is tailored to solve specific problems and meet unique user needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you approach new projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I follow a collaborative approach that starts with understanding your requirements, planning the architecture, developing iteratively with regular feedback, and ensuring quality through testing before deployment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you work on existing projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, I can help improve, maintain, or extend existing projects. I can review code, fix issues, add new features, or help migrate to newer technologies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies do you specialize in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I work with modern web technologies (React, Vue, Node.js), mobile development (React Native, Flutter), databases, cloud services, and various APIs. I choose the best technology stack for each project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you ensure project quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quality is ensured through comprehensive testing, code reviews, performance optimization, security audits, and ongoing maintenance. I also provide documentation and support for smooth project handover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your development process?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "My process includes requirement analysis, design planning, development sprints, regular client communication, testing phases, and deployment. I maintain transparency throughout the project lifecycle."
+      }
+    }
+  ]
+};
+
+const schemas = [personSchema, faqSchema];
+---
+
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

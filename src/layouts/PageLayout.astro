@@ -8,6 +8,7 @@ import { getHeaderData, getFooterData } from '~/navigation';
 import { getLangFromUrl } from '~/utils/i18n';
 
 import type { MetaData } from '~/types';
+import JsonLD from '~/components/common/JsonLD.astro';
 
 export interface Props {
   metadata?: MetaData;
@@ -20,6 +21,7 @@ const footerData = getFooterData(lang);
 ---
 
 <Layout metadata={metadata}>
+  <JsonLD metadata={metadata} />
   <!-- <slot name="announcement">
     <Announcement />
   </slot> -->
