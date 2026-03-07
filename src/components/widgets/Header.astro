@@ -51,7 +51,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    'top-0 z-40 flex-none mx-auto w-full border-b border-transparent transition-all duration-300',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
@@ -93,17 +93,17 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 <>
                   <button
                     type="button"
-                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                    class="hover:text-primary px-4 py-3 flex items-center whitespace-nowrap transition-colors duration-200"
                   >
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                  <ul class="dropdown-menu md:backdrop-blur-md rounded-lg md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-page md:min-w-[200px] shadow-lg shadow-black/5 border border-subtle">
                     {links.map(({ text: text2, href: href2 }) => (
                       <li>
                         <a
                           class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                            'first:rounded-t last:rounded-b md:hover:bg-surface hover:text-primary py-2 px-5 block whitespace-no-wrap transition-colors duration-200',
                             { 'aw-link-active': href2 === currentPath },
                           ]}
                           href={href2}
@@ -117,7 +117,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
+                    'hover:text-primary px-4 py-3 flex items-center whitespace-nowrap transition-colors duration-200',
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={href}
@@ -143,7 +143,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           {
             showRssFeed && (
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center ml-2"
+                class="text-muted hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-lg text-sm p-2.5 inline-flex items-center ml-2 transition-colors duration-200"
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >

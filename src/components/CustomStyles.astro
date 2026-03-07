@@ -1,63 +1,50 @@
 ---
 import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+import '@fontsource-variable/sora';
 ---
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    --aw-font-serif: 'Inter Variable', ui-serif, Georgia, serif;
+    --aw-font-heading: 'Sora Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: oklch(52% 0.18 255);
+    --aw-color-secondary: oklch(46% 0.16 255);
+    --aw-color-accent: oklch(48% 0.2 295);
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: oklch(15% 0.01 260);
+    --aw-color-text-default: oklch(22% 0.008 260);
+    --aw-color-text-muted: oklch(40% 0.01 260);
+    --aw-color-bg-page: oklch(98.5% 0.004 260);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-bg-page-dark: oklch(14% 0.02 260);
+
+    --aw-color-surface: oklch(96% 0.006 260);
+    --aw-color-surface-dark: oklch(18% 0.02 260);
+    --aw-color-surface-float: oklch(22% 0.02 260);
+    --aw-color-border: oklch(90% 0.01 260);
+    --aw-color-border-dark: oklch(25% 0.02 260);
 
     ::selection {
-      background-color: lavender;
+      background-color: oklch(85% 0.1 255);
+      color: oklch(15% 0.01 260);
     }
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-color-primary: oklch(65% 0.17 255);
+    --aw-color-secondary: oklch(58% 0.15 255);
+    --aw-color-accent: oklch(62% 0.18 295);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
-
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    --aw-color-text-heading: oklch(95% 0.005 260);
+    --aw-color-text-default: oklch(85% 0.008 260);
+    --aw-color-text-muted: oklch(65% 0.01 260);
+    --aw-color-bg-page: oklch(14% 0.02 260);
 
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: oklch(40% 0.15 255);
+      color: oklch(95% 0.005 260);
     }
   }
 </style>

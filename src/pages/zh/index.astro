@@ -11,64 +11,46 @@ import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
 
-import { YouTube } from 'astro-embed';
-
 const metadata = {
   title: 'luka2chat - 独立开发者',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
-    tagline="独立开发者作品集"
+    tagline="独立开发者"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
         text: '查看项目',
         href: 'https://github.com/luka2chat',
-        icon: 'tabler:download',
+        icon: 'tabler:arrow-right',
       },
       { text: '了解更多', href: '#features' },
     ]}
   >
     <Fragment slot="title">
-      Luka2Chat：创新独立开发者，专注于AI与软件解决方案
+      构建创新的<br class="hidden sm:inline" />AI 与软件解决方案
     </Fragment>
 
     <Fragment slot="subtitle">
-      一位充满激情的独立开发者，创造了众多创新产品，通过代码和技术将创意想法变为现实。
-    </Fragment>
-
-    <Fragment slot="image">
-      <!-- <YouTube id="gxBkghlglTg" title="luka2chat - Independent Developer Portfolio" /> -->
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
+      一位独立开发者，通过代码、设计和技术将创意想法变为现实。
     </Fragment>
   </Hero>
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
     title="关于 luka2chat"
-    subtitle="Luka2Chat 是一位经验丰富的独立开发者，专注于利用AI技术和创新思维，为客户提供定制软件开发、移动应用和Web解决方案。凭借多年的软件开发经验，我构建了众多解决现实世界问题的应用程序、工具和解决方案，体现了我对质量、用户体验和技术卓越的承诺。"
+    subtitle="我专注于利用AI技术和创新思维，提供定制软件开发、移动应用和Web解决方案。凭借多年经验，我构建了众多解决现实问题的应用和工具——始终以质量、用户体验和技术卓越为核心。"
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-surface"></div>
     </Fragment>
   </Features2>
 
-  <!-- Stats Widget ****************** -->
-
   <Stats
-    title="luka2chat 的开发影响力"
-    subtitle="下面的数字展示了我开发的独立产品的规模和覆盖范围，以及它们对全世界用户产生的积极影响。"
+    title="开发影响力"
+    subtitle="以下数字展示了我开发的独立产品的规模和覆盖范围。"
     stats={[
       { title: '创建产品', amount: '25+' },
       { title: '活跃用户', amount: '50K+' },
@@ -77,75 +59,20 @@ const metadata = {
     ]}
   />
 
-  <!-- Brands Widget ****************** -->
-
   <Brands
-    title="技术和平台"
-    subtitle="我使用多种技术和平台来创建稳健、可扩展和用户友好的应用程序。"
-    icons={[]}
-    images={[
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
-        alt: 'Paypal',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
-        alt: 'Visa',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
-        alt: 'Ebay',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
-        alt: 'Youtube',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
-        alt: 'Microsoft',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
-        alt: 'Node JS',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
-        alt: 'Google',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
-        alt: 'Meta',
-        width: 1280,
-        height: 720,
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
-        alt: 'Yahoo',
-        width: 1280,
-        height: 720,
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
+    title="技术栈"
+    subtitle="我日常使用的技术和平台。"
+    icons={['tabler:brand-react', 'tabler:brand-vue', 'tabler:brand-nodejs', 'tabler:brand-typescript', 'tabler:brand-python', 'tabler:brand-flutter', 'tabler:brand-docker', 'tabler:brand-tailwind', 'tabler:brand-firebase']}
+    images={[]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-surface"></div>
+    </Fragment>
+  </Brands>
 
   <Features2
     title="我提供什么服务？"
-    subtitle="作为一名独立开发者，我提供全面的开发服务，将您的想法变为现实，解决复杂的技术挑战。"
+    subtitle="全面的开发服务，将您的想法变为现实，解决复杂的技术挑战。"
     items={[
       {
         title: '定制软件开发',
@@ -168,16 +95,14 @@ const metadata = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-surface"></div>
     </Fragment>
   </Features2>
-
-  <!-- Features Widget *************** -->
 
   <Features
     id="features"
     title="核心开发原则"
-    subtitle="我的开发方法遵循这些关键原则，以确保高质量、可维护和以用户为中心的产品。"
+    subtitle="指导我构建高质量、可维护、以用户为中心产品的关键原则。"
     columns={3}
     items={[
       {
@@ -194,7 +119,7 @@ const metadata = {
       {
         title: '可扩展架构',
         description:
-          '构建具有可扩展架构的应用程序，可以随着您的业务需求和用户群体的增长而扩展。',
+          '构建具有可扩展架构的应用程序，可以随着业务需求和用户群体的增长而扩展。',
         icon: 'tabler:adjustments-horizontal',
       },
       {
@@ -206,17 +131,15 @@ const metadata = {
         title: '安全最佳实践',
         description:
           '实施强大的安全措施来保护用户数据并维护应用程序的完整性。',
-        icon: 'tabler:arrows-right-left',
+        icon: 'tabler:shield-check',
       },
       {
         title: '持续创新',
         description: '紧跟最新技术和趋势，交付尖端解决方案。',
-        icon: 'tabler:plug-connected',
+        icon: 'tabler:bulb',
       },
     ]}
   />
-
-  <!-- FAQs Widget ******************* -->
 
   <FAQs
     title="常见问题"
@@ -254,61 +177,45 @@ const metadata = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-surface"></div>
     </Fragment>
   </FAQs>
-
-  <!-- Features3 Widget ************** -->
 
   <Features3
     title="让我们讨论您的项目"
     subtitle="我在这里帮助将您的想法变为现实，并回答有关开发服务的任何问题。"
-    columns={4}
+    columns={3}
     items={[
-      {
-        title: '电话',
-        icon: 'tabler:phone',
-        callToAction: {
-          target: '_blank',
-          text: '给我们打电话',
-          href: '/',
-          variant: 'link',
-        },
-      },
       {
         title: '邮箱',
         icon: 'tabler:mail',
         callToAction: {
-          target: '_blank',
-          text: '写信给我们',
-          href: '/',
+          text: '写信给我',
+          href: '/zh/contact',
           variant: 'link',
         },
       },
       {
-        title: '与销售聊天',
-        icon: 'tabler:message-circle',
+        title: 'GitHub',
+        icon: 'tabler:brand-github',
         callToAction: {
           target: '_blank',
-          text: '开始聊天',
-          href: '/',
+          text: '查看代码',
+          href: 'https://github.com/luka2chat',
           variant: 'link',
         },
       },
       {
-        title: '与支持聊天',
-        icon: 'tabler:message-circle',
+        title: '博客',
+        icon: 'tabler:notebook',
         callToAction: {
-          target: '_blank',
-          text: '开始聊天',
-          href: '/',
+          text: '阅读文章',
+          href: '/zh/blog',
           variant: 'link',
         },
       },
     ]}
   />
-
-  <!-- CallToAction Widget *********** -->
 
   <CallToAction
     actions={[
@@ -317,7 +224,7 @@ const metadata = {
         target: '_blank',
         text: '查看项目',
         href: 'https://github.com/luka2chat',
-        icon: 'tabler:download',
+        icon: 'tabler:arrow-right',
       },
     ]}
   >

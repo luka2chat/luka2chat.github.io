@@ -228,7 +228,7 @@ export const getFooterData = (lang: Language = 'en') => {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/luka2chat' },
   ],
     footNote: `
-      Made by <a class="text-blue-600 underline dark:text-muted" href="https://luka2chat.com/"> luka2chat</a> · All rights reserved.
+      Made by <a class="text-primary hover:underline transition-colors duration-200" href="https://luka2chat.com/"> luka2chat</a> · All rights reserved.
     `,
   };
 };
