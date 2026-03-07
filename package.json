@@ -1,7 +1,7 @@
 {
-  "name": "@onwidget/astrowind",
+  "name": "luka2chat.github.io",
   "version": "1.0.0-beta.51",
-  "description": "AstroWind: A free template using Astro 5.0 and Tailwind CSS. Astro starter theme.",
+  "description": "Personal website and blog for luka2chat.com.",
   "type": "module",
   "private": true,
   "engines": {
@@ -13,12 +13,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npm run build && npm run preview",
-    "check": "npm run check:astro && npm run check:eslint && npm run check:prettier",
+    "deploy": "pnpm build && pnpm preview",
+    "check": "pnpm check:astro && pnpm check:eslint && pnpm check:prettier",
     "check:astro": "astro check",
     "check:eslint": "eslint .",
     "check:prettier": "prettier --check .",
-    "fix": "npm run fix:eslint && npm run fix:prettier",
+    "fix": "pnpm fix:eslint && pnpm fix:prettier",
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w ."
   },
