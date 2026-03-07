@@ -26,10 +26,10 @@ const {
     columns={columns}
     defaultIcon={defaultIcon}
     classes={{
-      container: 'gap-4 md:gap-6',
+      container: 'gap-6 md:gap-8',
       panel:
-        'rounded-xl border border-subtle bg-page p-6 transition-shadow duration-200 hover:shadow-lg hover:shadow-primary/5',
-      icon: 'w-12 h-12 mb-6 text-primary',
+        'border border-subtle bg-page p-8 md:p-10 transition-all duration-300 hover:border-muted/30',
+      icon: 'w-10 h-10 mb-5 text-primary',
       ...((classes?.items as Record<string, never>) ?? {}),
     }}
   />

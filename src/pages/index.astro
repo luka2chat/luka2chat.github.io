@@ -7,7 +7,6 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
 
@@ -18,29 +17,37 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="Coding for fun!"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: 'GitHub',
+        text: 'View on GitHub',
         href: 'https://github.com/luka2chat',
-        icon: 'tabler:brand-github',
+        icon: 'tabler:arrow-right',
       },
-      { text: 'My Projects', href: '#projects' },
+      { variant: 'secondary', text: 'See my work', href: '#projects' },
     ]}
   >
     <Fragment slot="title">
-      Hey, I'm Luka<br class="hidden sm:inline" /> — Building Tools for AI & GEO
+      <span class="italic">Luka</span> — Building<br /> Tools for AI & GEO
     </Fragment>
 
     <Fragment slot="subtitle">
-      Independent developer focused on game data tracking, generative engine optimization, and LLM-powered applications. Always learning, always building.
+      Independent developer focused on generative engine optimization, game data tracking, and LLM-powered applications. Always learning, always building.
+    </Fragment>
+
+    <Fragment slot="content">
+      <div class="inline-flex items-center gap-6 text-sm text-muted border border-subtle px-6 py-3">
+        <span class="uppercase tracking-widest text-xs font-medium">What's included</span>
+        <span class="w-px h-4 bg-[var(--aw-color-border)]"></span>
+        <span>Open-source tools · AI research · GEO resources</span>
+      </div>
     </Fragment>
   </Hero>
 
   <Features2
     id="projects"
+    tagline="01"
     title="What I'm Building"
     subtitle="Open-source projects I'm actively working on — from curated resource lists to gamified tracking systems."
     items={[
@@ -65,11 +72,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
+      <div class="absolute inset-0 bg-page"></div>
     </Fragment>
   </Features2>
 
   <Stats
+    tagline="02"
     title="GitHub Activity"
     stats={[
       { title: 'Public Repos', amount: '9' },
@@ -80,18 +88,20 @@ const metadata = {
   />
 
   <Brands
+    tagline="03"
     title="Tech Stack"
     subtitle="The technologies I use to build things."
     icons={['tabler:brand-typescript', 'tabler:brand-javascript', 'tabler:brand-python', 'tabler:brand-nodejs', 'tabler:brand-react', 'tabler:brand-tailwind', 'tabler:brand-github', 'tabler:brand-vite']}
     images={[]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
+      <div class="absolute inset-0 bg-page"></div>
     </Fragment>
   </Brands>
 
   <Features
     id="features"
+    tagline="04"
     title="What I Focus On"
     subtitle="The areas where I spend most of my time exploring and building."
     columns={3}
@@ -136,7 +146,8 @@ const metadata = {
   />
 
   <FAQs
-    title="FAQ"
+    tagline="05"
+    title="Frequently Asked Questions"
     items={[
       {
         title: 'What is awesome-geo?',
@@ -154,78 +165,38 @@ const metadata = {
           'Yes! All my projects are open source and available on GitHub. I believe in building in public and collaborating with the community. Feel free to star, fork, or contribute.',
       },
       {
-        title: 'What tech stack do you use?',
-        description:
-          'I primarily work with TypeScript, JavaScript, Python, and Node.js. For web projects I use Astro, React, VitePress, and Tailwind CSS. For backend and automation, Python and GitHub Actions are my go-to tools.',
-      },
-      {
         title: 'Can I contribute to your projects?',
         description:
           'Absolutely! All my projects welcome contributions. Check out the issues on any of my GitHub repos, or open a PR. For awesome-geo, you can submit new resources. For ClawRecord, feature requests and bug reports are always appreciated.',
       },
-      {
-        title: 'How can I reach you?',
-        description:
-          'The best way to reach me is through GitHub — open an issue or start a discussion on any of my repos. You can also find me through the contact page on this site.',
-      },
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
+      <div class="absolute inset-0 bg-page"></div>
     </Fragment>
   </FAQs>
-
-  <Features3
-    title="Get in Touch"
-    subtitle="Want to collaborate or just say hi?"
-    columns={3}
-    items={[
-      {
-        title: 'GitHub',
-        icon: 'tabler:brand-github',
-        callToAction: {
-          target: '_blank',
-          text: 'Follow me',
-          href: 'https://github.com/luka2chat',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Blog',
-        icon: 'tabler:notebook',
-        callToAction: {
-          text: 'Read my posts',
-          href: '/blog',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Contact',
-        icon: 'tabler:mail',
-        callToAction: {
-          text: 'Send a message',
-          href: '/contact',
-          variant: 'link',
-        },
-      },
-    ]}
-  />
 
   <CallToAction
     actions={[
       {
         variant: 'primary',
         target: '_blank',
+        text: 'Get in touch',
+        href: '/contact',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        variant: 'secondary',
+        target: '_blank',
         text: 'Star awesome-geo',
         href: 'https://github.com/luka2chat/awesome-geo',
-        icon: 'tabler:star',
       },
     ]}
   >
-    <Fragment slot="title">Check out awesome-geo</Fragment>
+    <Fragment slot="title">Work with me</Fragment>
 
     <Fragment slot="subtitle">
-      A curated list of 120+ resources for Generative Engine Optimization. If you find it useful, give it a star on GitHub!
+      I'm always interested in collaborating on open-source projects, AI tools, and GEO research. Let's build something together.
     </Fragment>
   </CallToAction>
 </Layout>

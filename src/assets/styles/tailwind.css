@@ -43,7 +43,8 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-lg border border-transparent bg-transparent font-medium text-center text-base text-page leading-snug py-3 px-6 md:px-8 cursor-pointer;
+    @apply inline-flex items-center justify-center border border-transparent bg-transparent font-medium text-center text-base text-page leading-snug py-3.5 px-8 md:px-10 cursor-pointer;
+    border-radius: 0;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
                 background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
@@ -66,23 +67,29 @@
   }
 
   .btn-primary {
-    @apply btn font-semibold text-white border-transparent;
-    background-color: var(--aw-color-primary);
+    @apply btn font-semibold text-white border-transparent tracking-wide;
+    background-color: oklch(15% 0.005 260);
   }
 
   .btn-primary:hover {
-    background-color: var(--aw-color-secondary);
-    box-shadow: 0 4px 16px -2px oklch(52% 0.18 255 / 0.3);
+    background-color: oklch(25% 0.005 260);
+    box-shadow: 0 4px 20px -4px oklch(15% 0.005 260 / 0.3);
     transform: translateY(-1px);
   }
 
+  .dark .btn-primary {
+    background-color: oklch(95% 0.003 260);
+    color: oklch(12% 0.005 260);
+  }
+
   .dark .btn-primary:hover {
-    box-shadow: 0 4px 16px -2px oklch(65% 0.17 255 / 0.25);
+    background-color: oklch(85% 0.003 260);
+    box-shadow: 0 4px 20px -4px oklch(95% 0.003 260 / 0.2);
   }
 
   .btn-primary:active {
     transform: translateY(0.5px);
-    box-shadow: 0 1px 4px oklch(52% 0.18 255 / 0.2);
+    box-shadow: none;
   }
 
   .btn-secondary {
@@ -118,14 +125,13 @@
 
 #header.scroll > div:first-child {
   @apply bg-page md:backdrop-blur-md;
-  background-color: oklch(98.5% 0.004 260 / 0.9);
-  box-shadow: 0 1px 3px oklch(40% 0.01 260 / 0.06),
-              0 4px 12px oklch(40% 0.01 260 / 0.04);
+  background-color: oklch(99% 0.002 260 / 0.92);
+  box-shadow: 0 1px 0 oklch(40% 0.01 260 / 0.08);
 }
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
   @apply bg-page md:backdrop-blur-md;
-  background-color: oklch(14% 0.02 260 / 0.92);
+  background-color: oklch(12% 0.015 260 / 0.92);
   box-shadow: 0 1px 0 oklch(25% 0.02 260 / 0.5);
 }
 

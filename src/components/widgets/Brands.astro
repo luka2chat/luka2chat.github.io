@@ -21,12 +21,12 @@ const {
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-  <div class="flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-14">
+  <div class="flex flex-wrap gap-8 sm:gap-12 lg:gap-16">
     {
       icons &&
         icons.map((icon, index) => (
           <div
-            class="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl text-muted hover:text-primary transition-colors duration-200"
+            class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 text-muted hover:text-heading transition-colors duration-300"
             style={`animation-delay: ${index * 60}ms;`}
           >
             <Icon name={icon} class="w-10 h-10 sm:w-12 sm:h-12" />
@@ -38,7 +38,7 @@ const {
         images.map(
           (image) =>
             image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-lg dark:bg-gray-200">
+              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 dark:bg-gray-200">
                 <img src={image.src} alt={image.alt || ''} class="max-h-12" width={120} height={48} />
               </div>
             )

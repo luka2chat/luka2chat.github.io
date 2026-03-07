@@ -7,7 +7,6 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
 
@@ -18,29 +17,37 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="Coding for fun!"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: 'GitHub',
+        text: '查看 GitHub',
         href: 'https://github.com/luka2chat',
-        icon: 'tabler:brand-github',
+        icon: 'tabler:arrow-right',
       },
-      { text: '我的项目', href: '#projects' },
+      { variant: 'secondary', text: '看看我的项目', href: '#projects' },
     ]}
   >
     <Fragment slot="title">
-      嗨，我是 Luka<br class="hidden sm:inline" /> — 构建 AI & GEO 工具
+      <span class="italic">Luka</span> — 构建<br /> AI & GEO 工具
     </Fragment>
 
     <Fragment slot="subtitle">
-      独立开发者，专注于游戏数据追踪、生成式引擎优化（GEO）和 LLM 驱动的应用。一直在学，一直在造。
+      独立开发者，专注于生成式引擎优化、游戏数据追踪和 LLM 驱动的应用。一直在学，一直在造。
+    </Fragment>
+
+    <Fragment slot="content">
+      <div class="inline-flex items-center gap-6 text-sm text-muted border border-subtle px-6 py-3">
+        <span class="uppercase tracking-widest text-xs font-medium">包含内容</span>
+        <span class="w-px h-4 bg-[var(--aw-color-border)]"></span>
+        <span>开源工具 · AI 研究 · GEO 资源</span>
+      </div>
     </Fragment>
   </Hero>
 
   <Features2
     id="projects"
+    tagline="01"
     title="我在做什么"
     subtitle="我正在积极维护的开源项目——从精选资源列表到游戏化追踪系统。"
     items={[
@@ -65,11 +72,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
+      <div class="absolute inset-0 bg-page"></div>
     </Fragment>
   </Features2>
 
   <Stats
+    tagline="02"
     title="GitHub 数据"
     stats={[
       { title: '公开仓库', amount: '9' },
@@ -80,18 +88,20 @@ const metadata = {
   />
 
   <Brands
+    tagline="03"
     title="技术栈"
     subtitle="我用来造东西的技术。"
     icons={['tabler:brand-typescript', 'tabler:brand-javascript', 'tabler:brand-python', 'tabler:brand-nodejs', 'tabler:brand-react', 'tabler:brand-tailwind', 'tabler:brand-github', 'tabler:brand-vite']}
     images={[]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
+      <div class="absolute inset-0 bg-page"></div>
     </Fragment>
   </Brands>
 
   <Features
     id="features"
+    tagline="04"
     title="我关注的领域"
     subtitle="我花最多时间探索和构建的方向。"
     columns={3}
@@ -136,6 +146,7 @@ const metadata = {
   />
 
   <FAQs
+    tagline="05"
     title="常见问题"
     items={[
       {
@@ -154,78 +165,37 @@ const metadata = {
           '是的！我所有的项目都是开源的，可以在 GitHub 上找到。我相信公开构建和社区协作。欢迎 star、fork 或贡献代码。',
       },
       {
-        title: '你用什么技术栈？',
-        description:
-          '我主要使用 TypeScript、JavaScript、Python 和 Node.js。Web 项目使用 Astro、React、VitePress 和 Tailwind CSS。后端和自动化方面，Python 和 GitHub Actions 是我的首选工具。',
-      },
-      {
         title: '我可以参与贡献吗？',
         description:
           '当然可以！我所有项目都欢迎贡献。查看 GitHub 仓库中的 issues，或者直接提交 PR。awesome-geo 可以提交新资源，ClawRecord 欢迎功能请求和 bug 报告。',
       },
-      {
-        title: '怎么联系你？',
-        description:
-          '最好的方式是通过 GitHub——在我的任何仓库中开 issue 或者发起 discussion。你也可以通过本站的联系页面找到我。',
-      },
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
+      <div class="absolute inset-0 bg-page"></div>
     </Fragment>
   </FAQs>
-
-  <Features3
-    title="联系我"
-    subtitle="想合作或者打个招呼？"
-    columns={3}
-    items={[
-      {
-        title: 'GitHub',
-        icon: 'tabler:brand-github',
-        callToAction: {
-          target: '_blank',
-          text: '关注我',
-          href: 'https://github.com/luka2chat',
-          variant: 'link',
-        },
-      },
-      {
-        title: '博客',
-        icon: 'tabler:notebook',
-        callToAction: {
-          text: '阅读文章',
-          href: '/zh/blog',
-          variant: 'link',
-        },
-      },
-      {
-        title: '联系',
-        icon: 'tabler:mail',
-        callToAction: {
-          text: '发消息',
-          href: '/zh/contact',
-          variant: 'link',
-        },
-      },
-    ]}
-  />
 
   <CallToAction
     actions={[
       {
         variant: 'primary',
+        text: '联系我',
+        href: '/zh/contact',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        variant: 'secondary',
         target: '_blank',
         text: '给 awesome-geo 点 Star',
         href: 'https://github.com/luka2chat/awesome-geo',
-        icon: 'tabler:star',
       },
     ]}
   >
-    <Fragment slot="title">看看 awesome-geo</Fragment>
+    <Fragment slot="title">和我合作</Fragment>
 
     <Fragment slot="subtitle">
-      一个精选的 120+ 生成式引擎优化资源列表。如果觉得有用，在 GitHub 上给个 star 吧！
+      我始终对开源项目、AI 工具和 GEO 研究的合作感兴趣。一起来造点什么吧。
     </Fragment>
   </CallToAction>
 </Layout>

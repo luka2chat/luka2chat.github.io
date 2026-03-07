@@ -26,15 +26,16 @@ export interface Props {
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-subtle not-prose']}>
+<footer class:list={[{ dark: theme === 'dark' }, 'relative not-prose']}>
   <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div
     class="relative max-w-7xl mx-auto px-4 sm:px-6 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
   >
-    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-10 md:py-14">
+    <div class="border-t border-subtle"></div>
+    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-12 md:py-16">
       <div class="col-span-12 lg:col-span-4">
-        <div class="mb-2">
-          <a class="inline-block font-heading font-bold text-xl text-heading" href={getHomePermalink()}>{SITE?.name}</a>
+        <div class="mb-3">
+          <a class="inline-block font-heading text-xl text-heading italic" href={getHomePermalink()}>{SITE?.name}</a>
         </div>
         <div class="text-sm text-muted flex gap-1">
           {
@@ -42,7 +43,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
               <>
                 {index !== 0 ? ' · ' : ''}
                 <a
-                  class="text-muted hover:text-primary transition-colors duration-200"
+                  class="text-muted hover:text-heading transition-colors duration-200"
                   href={href}
                   set:html={text}
                 />
@@ -54,13 +55,13 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       {
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="font-heading font-medium text-heading mb-2 text-sm tracking-wide">{title}</div>
+            <div class="text-xs font-medium text-muted mb-3 tracking-widest uppercase">{title}</div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm">
                 {links.map(({ text, href, ariaLabel }) => (
                   <li class="mb-2">
                     <a
-                      class="text-muted hover:text-primary transition-colors duration-200"
+                      class="text-default hover:text-heading transition-colors duration-200"
                       href={href}
                       aria-label={ariaLabel}
                     >
@@ -74,14 +75,14 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         ))
       }
     </div>
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-subtle">
+    <div class="md:flex md:items-center md:justify-between py-8 border-t border-subtle">
       {
         socialLinks?.length ? (
           <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
                 <a
-                  class="text-muted hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 rounded-lg text-sm p-2.5 inline-flex items-center transition-colors duration-200"
+                  class="text-muted hover:text-heading focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 text-sm p-2.5 inline-flex items-center transition-colors duration-200"
                   aria-label={ariaLabel}
                   href={href}
                 >

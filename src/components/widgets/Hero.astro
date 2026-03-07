@@ -26,12 +26,12 @@ const {
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-16 md:py-28 lg:py-32">
-      <div class="text-center max-w-4xl mx-auto">
+    <div class="py-20 md:py-32 lg:py-40">
+      <div class="max-w-3xl">
         {
           tagline && (
             <p
-              class="text-sm text-primary font-semibold tracking-widest uppercase mb-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-sm text-muted font-medium tracking-widest uppercase mb-8 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={tagline}
             />
           )
@@ -39,55 +39,62 @@ const {
         {
           title && (
             <h1
-              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6 font-heading text-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              style="animation-delay: 80ms;"
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading leading-[1.05] tracking-tight mb-8 text-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              style="animation-delay: 100ms;"
               set:html={title}
             />
           )
         }
-        <div class="max-w-2xl mx-auto">
-          {
-            subtitle && (
-              <p
-                class="text-lg md:text-xl text-muted mb-8 leading-relaxed intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-                style="animation-delay: 160ms;"
-                set:html={subtitle}
-              />
-            )
-          }
-          {
-            actions && (
-              <div
-                class="flex flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-                style="animation-delay: 240ms;"
-              >
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-        {content && <div class="mt-12"><Fragment set:html={content} /></div>}
+        {
+          subtitle && (
+            <p
+              class="text-lg md:text-xl text-muted mb-10 leading-relaxed max-w-xl intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              style="animation-delay: 200ms;"
+              set:html={subtitle}
+            />
+          )
+        }
+        {
+          content && (
+            <div
+              class="mb-10 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              style="animation-delay: 250ms;"
+            >
+              <Fragment set:html={content} />
+            </div>
+          )
+        }
+        {
+          actions && (
+            <div
+              class="flex flex-col sm:flex-row gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              style="animation-delay: 300ms;"
+            >
+              {Array.isArray(actions) ? (
+                actions.map((action) => (
+                  <div class="flex w-full sm:w-auto">
+                    <Button {...(action || {})} class="w-full sm:mb-0" />
+                  </div>
+                ))
+              ) : (
+                <Fragment set:html={actions} />
+              )}
+            </div>
+          )
+        }
       </div>
       {
         image && (
           <div
-            class="mt-16 intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-            style="animation-delay: 320ms;"
+            class="mt-20 intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+            style="animation-delay: 400ms;"
           >
             <div class="relative m-auto max-w-5xl">
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="mx-auto rounded-lg w-full"
+                  class="mx-auto w-full"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"
