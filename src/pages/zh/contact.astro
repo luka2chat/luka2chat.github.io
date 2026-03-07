@@ -5,19 +5,17 @@ import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: '联系我们',
+  title: '联系 - luka2chat',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="联系我们" title="让我们联系！" />
+  <HeroText tagline="联系我" title="一起聊聊！" subtitle="有问题、想合作、或者只是打个招呼？我很乐意收到你的消息。" />
 
   <ContactUs
     id="form"
-    title="今天就给我们留言吧！"
-    subtitle="为了获得更快的答案，请查看我们的常见问题部分。您可能会在那里找到您正在寻找的解决方案！如果没有，我们的支持团队很乐意为您提供帮助。"
+    title="给我发消息"
+    subtitle="我会尽快回复。如果是项目相关的问题，建议在 GitHub 上开 issue——这也能帮到其他有同样问题的人。"
     inputs={[
       {
         type: 'text',
@@ -35,44 +33,30 @@ const metadata = {
     }}
     disclaimer={{
       label:
-        '通过提交此联系表单，您承认并同意收集您的个人信息。',
+        '提交此表单即表示您同意收集您的联系信息，用于回复您的消息。',
     }}
-    description="我们的支持团队通常在24个工作小时内回复。"
+    description="我通常会在几天内回复。"
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="我们在这里帮助您！"
+    title="其他联系方式"
     items={[
       {
-        title: '通用支持',
-        description: `联系我们咨询账户管理、网站导航、支付问题、访问已购买模板或有关网站功能的一般问题。`,
-      },
-      {
-        title: '联系销售',
+        title: 'GitHub Issues',
         description:
-          '联系我们咨询有关购买、定制选项、商业使用许可、特定模板咨询等问题。',
+          '项目相关的问题、bug 或功能请求，最好的方式是在对应仓库中开 issue。',
+        icon: 'tabler:brand-github',
       },
       {
-        title: '技术支持',
+        title: 'GitHub Discussions',
         description:
-          '当遇到模板安装、编辑困难、软件兼容性问题或下载错误等技术挑战时，请与我们聊天。',
+          '更广泛的对话、想法，或者聊聊 GEO、AI 和开源，可以在我的仓库中发起 discussion。',
+        icon: 'tabler:message-circle',
       },
       {
-        title: '电话',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: '邮箱',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: '位置',
-        description: '中国北京朝阳区',
-        icon: 'tabler:map-pin',
+        title: '博客',
+        description: '看看我的博客，了解 GEO、AI 工具和我正在构建的东西。欢迎评论和反馈。',
+        icon: 'tabler:notebook',
       },
     ]}
   />

@@ -18,30 +18,51 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="Independent Developer"
+    tagline="Coding for fun!"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: 'View Projects',
+        text: 'GitHub',
         href: 'https://github.com/luka2chat',
-        icon: 'tabler:arrow-right',
+        icon: 'tabler:brand-github',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'My Projects', href: '#projects' },
     ]}
   >
     <Fragment slot="title">
-      Building Innovative<br class="hidden sm:inline" /> AI & Software Solutions
+      Hey, I'm Luka<br class="hidden sm:inline" /> — Building Tools for AI & GEO
     </Fragment>
 
     <Fragment slot="subtitle">
-      An independent developer who crafts products that bring creative ideas to life through code, design, and technology.
+      Independent developer focused on game data tracking, generative engine optimization, and LLM-powered applications. Always learning, always building.
     </Fragment>
   </Hero>
 
   <Features2
-    title="About luka2chat"
-    subtitle="I specialize in leveraging AI technology and innovative thinking to provide custom software development, mobile applications, and web solutions. With years of experience, I've built applications and tools that solve real-world problems — always with a focus on quality, user experience, and technical excellence."
+    id="projects"
+    title="What I'm Building"
+    subtitle="Open-source projects I'm actively working on — from curated resource lists to gamified tracking systems."
+    items={[
+      {
+        title: 'awesome-geo',
+        description:
+          'A curated list of 120+ resources for Generative Engine Optimization (GEO) — optimizing content for AI search engines like ChatGPT, Perplexity, Claude, and Google AI Overviews. 17 stars on GitHub.',
+        icon: 'tabler:star',
+      },
+      {
+        title: 'ClawRecord',
+        description:
+          'Gamified OpenClaw tracking system — like Duolingo for your AI assistant. Features XP, levels, achievements, skill trees, daily quests, and a global leaderboard. Built with Python and Node.js.',
+        icon: 'tabler:device-gamepad-2',
+      },
+      {
+        title: 'ClawRecord Leaderboard',
+        description:
+          'Decentralized global leaderboard for OpenClaw tamers — ranking users worldwide with competitive leagues from Bronze to Diamond.',
+        icon: 'tabler:chart-bar',
+      },
+    ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-surface"></div>
@@ -49,20 +70,19 @@ const metadata = {
   </Features2>
 
   <Stats
-    title="Development Impact"
-    subtitle="The numbers below showcase the scale and reach of the independent products I've developed."
+    title="GitHub Activity"
     stats={[
-      { title: 'Products Created', amount: '25+' },
-      { title: 'Active Users', amount: '50K+' },
-      { title: 'Code Commits', amount: '2.5K' },
-      { title: 'Years Experience', amount: '8+' },
+      { title: 'Public Repos', amount: '9' },
+      { title: 'Stars Earned', amount: '17' },
+      { title: 'Contributions', amount: '81' },
+      { title: 'Open Source Projects', amount: '3' },
     ]}
   />
 
   <Brands
     title="Tech Stack"
-    subtitle="The technologies and platforms I work with daily."
-    icons={['tabler:brand-react', 'tabler:brand-vue', 'tabler:brand-nodejs', 'tabler:brand-typescript', 'tabler:brand-python', 'tabler:brand-flutter', 'tabler:brand-docker', 'tabler:brand-tailwind', 'tabler:brand-firebase']}
+    subtitle="The technologies I use to build things."
+    icons={['tabler:brand-typescript', 'tabler:brand-javascript', 'tabler:brand-python', 'tabler:brand-nodejs', 'tabler:brand-react', 'tabler:brand-tailwind', 'tabler:brand-github', 'tabler:brand-vite']}
     images={[]}
   >
     <Fragment slot="bg">
@@ -70,109 +90,83 @@ const metadata = {
     </Fragment>
   </Brands>
 
-  <Features2
-    title="What services do I provide?"
-    subtitle="A comprehensive range of development services to bring your ideas to life and solve complex technical challenges."
-    items={[
-      {
-        title: 'Custom Software Development',
-        description:
-          'Building tailored applications and software solutions that meet your specific business needs and requirements.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Mobile App Development',
-        description:
-          'Creating native and cross-platform mobile applications for iOS and Android with modern frameworks and best practices.',
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Web Development & Consulting',
-        description:
-          'Providing expert guidance and development services for web applications, from concept to deployment and maintenance.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
-    </Fragment>
-  </Features2>
-
   <Features
     id="features"
-    title="Core Development Principles"
-    subtitle="The key principles that guide my approach to building high-quality, maintainable, and user-focused products."
+    title="What I Focus On"
+    subtitle="The areas where I spend most of my time exploring and building."
     columns={3}
     items={[
       {
-        title: 'Clean & Maintainable Code',
+        title: 'Generative Engine Optimization',
         description:
-          'Writing code that is not only functional but also clean, well-documented, and easy to maintain for long-term success.',
-        icon: 'tabler:artboard',
+          'Researching and curating the best practices for optimizing content visibility in AI-powered search engines and LLM-based answer engines.',
+        icon: 'tabler:search',
       },
       {
-        title: 'User-Centered Design',
-        description: 'Prioritizing user experience and interface design to create intuitive and engaging applications.',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: 'Scalable Architecture',
+        title: 'LLM-Powered Applications',
         description:
-          'Building applications with scalable architecture that can grow with your business needs and user base.',
-        icon: 'tabler:adjustments-horizontal',
+          'Building tools and applications that leverage large language models to solve real problems — automating workflows and creating smarter developer experiences.',
+        icon: 'tabler:brain',
       },
       {
-        title: 'Performance Optimization',
-        description: 'Ensuring fast loading times and optimal performance across all devices and platforms.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Security Best Practices',
+        title: 'Gamification Systems',
         description:
-          'Implementing robust security measures to protect user data and maintain application integrity.',
-        icon: 'tabler:shield-check',
+          'Designing engagement mechanics like XP, levels, achievements, and leaderboards to make developer tools more fun to use.',
+        icon: 'tabler:trophy',
       },
       {
-        title: 'Continuous Innovation',
-        description: 'Staying updated with the latest technologies and trends to deliver cutting-edge solutions.',
-        icon: 'tabler:bulb',
+        title: 'Open Source',
+        description:
+          'Contributing to and maintaining open-source projects. Everything I build is public and open for collaboration.',
+        icon: 'tabler:git-fork',
+      },
+      {
+        title: 'Web Development',
+        description:
+          'Full-stack web development with modern frameworks — Astro, React, VitePress, Node.js, and more.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Developer Tools',
+        description:
+          'Building tools that make developers\' lives easier — from automation scripts to tracking dashboards.',
+        icon: 'tabler:tool',
       },
     ]}
   />
 
   <FAQs
-    title="Frequently Asked Questions"
+    title="FAQ"
     items={[
       {
-        title: 'What types of products have you developed?',
+        title: 'What is awesome-geo?',
         description:
-          'I have developed a wide range of products including mobile applications, web platforms, productivity tools, e-commerce solutions, and custom business software. Each product is tailored to solve specific problems and meet unique user needs.',
+          'awesome-geo is a curated list of 120+ resources for Generative Engine Optimization (GEO). It covers research papers, tools, strategies, and best practices for optimizing content to be cited by AI search engines like ChatGPT, Perplexity, and Google AI Overviews.',
       },
       {
-        title: 'How do you approach new projects?',
+        title: 'What is ClawRecord?',
         description:
-          'I follow a collaborative approach that starts with understanding your requirements, planning the architecture, developing iteratively with regular feedback, and ensuring quality through testing before deployment.',
+          'ClawRecord is a gamified tracking system for OpenClaw — think of it as Duolingo for your AI assistant. It automatically tracks your OpenClaw usage and turns it into XP, levels, achievements, and a global leaderboard. Built with Python and Node.js.',
       },
       {
-        title: 'Can you work on existing projects?',
+        title: 'Are your projects open source?',
         description:
-          'Yes, I can help improve, maintain, or extend existing projects. I can review code, fix issues, add new features, or help migrate to newer technologies.',
+          'Yes! All my projects are open source and available on GitHub. I believe in building in public and collaborating with the community. Feel free to star, fork, or contribute.',
       },
       {
-        title: 'What technologies do you specialize in?',
+        title: 'What tech stack do you use?',
         description:
-          'I work with modern web technologies (React, Vue, Node.js), mobile development (React Native, Flutter), databases, cloud services, and various APIs. I choose the best technology stack for each project.',
+          'I primarily work with TypeScript, JavaScript, Python, and Node.js. For web projects I use Astro, React, VitePress, and Tailwind CSS. For backend and automation, Python and GitHub Actions are my go-to tools.',
       },
       {
-        title: 'How do you ensure project quality?',
+        title: 'Can I contribute to your projects?',
         description:
-          'Quality is ensured through comprehensive testing, code reviews, performance optimization, security audits, and ongoing maintenance. I also provide documentation and support for smooth project handover.',
+          'Absolutely! All my projects welcome contributions. Check out the issues on any of my GitHub repos, or open a PR. For awesome-geo, you can submit new resources. For ClawRecord, feature requests and bug reports are always appreciated.',
       },
       {
-        title: 'What is your development process?',
+        title: 'How can I reach you?',
         description:
-          "My process includes requirement analysis, design planning, development sprints, regular client communication, testing phases, and deployment. I maintain transparency throughout the project lifecycle.",
+          'The best way to reach me is through GitHub — open an issue or start a discussion on any of my repos. You can also find me through the contact page on this site.',
       },
     ]}
   >
@@ -182,26 +176,16 @@ const metadata = {
   </FAQs>
 
   <Features3
-    title="Let's discuss your project"
-    subtitle="I'm here to help bring your ideas to life and answer any questions about development services."
+    title="Get in Touch"
+    subtitle="Want to collaborate or just say hi?"
     columns={3}
     items={[
-      {
-        title: 'Email',
-        icon: 'tabler:mail',
-        callToAction: {
-          target: '_blank',
-          text: 'Write to me',
-          href: '/contact',
-          variant: 'link',
-        },
-      },
       {
         title: 'GitHub',
         icon: 'tabler:brand-github',
         callToAction: {
           target: '_blank',
-          text: 'View my code',
+          text: 'Follow me',
           href: 'https://github.com/luka2chat',
           variant: 'link',
         },
@@ -210,8 +194,17 @@ const metadata = {
         title: 'Blog',
         icon: 'tabler:notebook',
         callToAction: {
-          text: 'Read my thoughts',
+          text: 'Read my posts',
           href: '/blog',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Contact',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: 'Send a message',
+          href: '/contact',
           variant: 'link',
         },
       },
@@ -223,16 +216,16 @@ const metadata = {
       {
         variant: 'primary',
         target: '_blank',
-        text: 'View Projects',
-        href: 'https://github.com/luka2chat',
-        icon: 'tabler:arrow-right',
+        text: 'Star awesome-geo',
+        href: 'https://github.com/luka2chat/awesome-geo',
+        icon: 'tabler:star',
       },
     ]}
   >
-    <Fragment slot="title">Ready to start your project?</Fragment>
+    <Fragment slot="title">Check out awesome-geo</Fragment>
 
     <Fragment slot="subtitle">
-      Let's collaborate to turn your ideas into reality. I'm here to help you build innovative solutions that make a difference.
+      A curated list of 120+ resources for Generative Engine Optimization. If you find it useful, give it a star on GitHub!
     </Fragment>
   </CallToAction>
 </Layout>

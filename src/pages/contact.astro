@@ -5,19 +5,17 @@ import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact - luka2chat',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText tagline="Contact" title="Let's Connect!" subtitle="Have a question, want to collaborate, or just want to say hi? I'd love to hear from you." />
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Send me a message"
+    subtitle="I'll get back to you as soon as I can. For project-specific questions, consider opening a GitHub issue — it helps others who might have the same question."
     inputs={[
       {
         type: 'text',
@@ -35,44 +33,30 @@ const metadata = {
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'By submitting this form, you agree to the collection of your contact information for the purpose of responding to your message.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="I typically respond within a few days."
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="We are here to help!"
+    title="Other Ways to Reach Me"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
+        title: 'GitHub Issues',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+          'For project-related questions, bugs, or feature requests, the best way is to open an issue on the relevant repository.',
+        icon: 'tabler:brand-github',
       },
       {
-        title: 'Technical support',
+        title: 'GitHub Discussions',
         description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+          'For broader conversations, ideas, or just to chat about GEO, AI, or open source, start a discussion on my repos.',
+        icon: 'tabler:message-circle',
       },
       {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
+        title: 'Blog',
+        description: 'Check out my blog for articles on GEO, AI tools, and what I\'m building. Comments and feedback are always welcome.',
+        icon: 'tabler:notebook',
       },
     ]}
   />

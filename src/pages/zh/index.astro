@@ -18,30 +18,51 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Hero
-    tagline="独立开发者"
+    tagline="Coding for fun!"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: '查看项目',
+        text: 'GitHub',
         href: 'https://github.com/luka2chat',
-        icon: 'tabler:arrow-right',
+        icon: 'tabler:brand-github',
       },
-      { text: '了解更多', href: '#features' },
+      { text: '我的项目', href: '#projects' },
     ]}
   >
     <Fragment slot="title">
-      构建创新的<br class="hidden sm:inline" />AI 与软件解决方案
+      嗨，我是 Luka<br class="hidden sm:inline" /> — 构建 AI & GEO 工具
     </Fragment>
 
     <Fragment slot="subtitle">
-      一位独立开发者，通过代码、设计和技术将创意想法变为现实。
+      独立开发者，专注于游戏数据追踪、生成式引擎优化（GEO）和 LLM 驱动的应用。一直在学，一直在造。
     </Fragment>
   </Hero>
 
   <Features2
-    title="关于 luka2chat"
-    subtitle="我专注于利用AI技术和创新思维，提供定制软件开发、移动应用和Web解决方案。凭借多年经验，我构建了众多解决现实问题的应用和工具——始终以质量、用户体验和技术卓越为核心。"
+    id="projects"
+    title="我在做什么"
+    subtitle="我正在积极维护的开源项目——从精选资源列表到游戏化追踪系统。"
+    items={[
+      {
+        title: 'awesome-geo',
+        description:
+          '一个精选的 120+ 生成式引擎优化（GEO）资源列表——帮助优化内容在 ChatGPT、Perplexity、Claude、Google AI Overviews 等 AI 搜索引擎中的可见度。GitHub 上获得 17 颗星。',
+        icon: 'tabler:star',
+      },
+      {
+        title: 'ClawRecord',
+        description:
+          '游戏化 OpenClaw 追踪系统——像 Duolingo 一样追踪你的 AI 助手使用情况。包含经验值、等级、成就、技能树、每日任务和全球排行榜。使用 Python 和 Node.js 构建。',
+        icon: 'tabler:device-gamepad-2',
+      },
+      {
+        title: 'ClawRecord Leaderboard',
+        description:
+          '去中心化全球排行榜——在全球范围内对 OpenClaw 用户进行排名，从青铜到钻石的竞技联赛。',
+        icon: 'tabler:chart-bar',
+      },
+    ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-surface"></div>
@@ -49,20 +70,19 @@ const metadata = {
   </Features2>
 
   <Stats
-    title="开发影响力"
-    subtitle="以下数字展示了我开发的独立产品的规模和覆盖范围。"
+    title="GitHub 数据"
     stats={[
-      { title: '创建产品', amount: '25+' },
-      { title: '活跃用户', amount: '50K+' },
-      { title: '代码提交', amount: '2.5K' },
-      { title: '经验年限', amount: '8+' },
+      { title: '公开仓库', amount: '9' },
+      { title: '获得 Stars', amount: '17' },
+      { title: '贡献次数', amount: '81' },
+      { title: '开源项目', amount: '3' },
     ]}
   />
 
   <Brands
     title="技术栈"
-    subtitle="我日常使用的技术和平台。"
-    icons={['tabler:brand-react', 'tabler:brand-vue', 'tabler:brand-nodejs', 'tabler:brand-typescript', 'tabler:brand-python', 'tabler:brand-flutter', 'tabler:brand-docker', 'tabler:brand-tailwind', 'tabler:brand-firebase']}
+    subtitle="我用来造东西的技术。"
+    icons={['tabler:brand-typescript', 'tabler:brand-javascript', 'tabler:brand-python', 'tabler:brand-nodejs', 'tabler:brand-react', 'tabler:brand-tailwind', 'tabler:brand-github', 'tabler:brand-vite']}
     images={[]}
   >
     <Fragment slot="bg">
@@ -70,73 +90,47 @@ const metadata = {
     </Fragment>
   </Brands>
 
-  <Features2
-    title="我提供什么服务？"
-    subtitle="全面的开发服务，将您的想法变为现实，解决复杂的技术挑战。"
-    items={[
-      {
-        title: '定制软件开发',
-        description:
-          '构建量身定制的应用程序和软件解决方案，满足您的具体业务需求。',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: '移动应用开发',
-        description:
-          '使用现代框架和最佳实践，为 iOS 和 Android 创建原生和跨平台移动应用。',
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: '网站开发和咨询',
-        description:
-          '为网络应用提供专业指导和开发服务，从概念到部署和维护。',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-surface"></div>
-    </Fragment>
-  </Features2>
-
   <Features
     id="features"
-    title="核心开发原则"
-    subtitle="指导我构建高质量、可维护、以用户为中心产品的关键原则。"
+    title="我关注的领域"
+    subtitle="我花最多时间探索和构建的方向。"
     columns={3}
     items={[
       {
-        title: '简洁可维护的代码',
+        title: '生成式引擎优化（GEO）',
         description:
-          '编写不仅功能完善，而且简洁、文档齐全、易于维护的代码，以实现长期成功。',
-        icon: 'tabler:artboard',
+          '研究和整理在 AI 驱动的搜索引擎和 LLM 回答引擎中优化内容可见度的最佳实践。',
+        icon: 'tabler:search',
       },
       {
-        title: '以用户为中心的设计',
-        description: '优先考虑用户体验和界面设计，创建直观引人的应用程序。',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: '可扩展架构',
+        title: 'LLM 驱动的应用',
         description:
-          '构建具有可扩展架构的应用程序，可以随着业务需求和用户群体的增长而扩展。',
-        icon: 'tabler:adjustments-horizontal',
+          '构建利用大语言模型解决实际问题的工具和应用——自动化工作流，打造更智能的开发者体验。',
+        icon: 'tabler:brain',
       },
       {
-        title: '性能优化',
-        description: '确保在所有设备和平台上都具有快速的加载速度和最佳性能。',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: '安全最佳实践',
+        title: '游戏化系统',
         description:
-          '实施强大的安全措施来保护用户数据并维护应用程序的完整性。',
-        icon: 'tabler:shield-check',
+          '设计经验值、等级、成就和排行榜等参与机制，让开发者工具更有趣。',
+        icon: 'tabler:trophy',
       },
       {
-        title: '持续创新',
-        description: '紧跟最新技术和趋势，交付尖端解决方案。',
-        icon: 'tabler:bulb',
+        title: '开源',
+        description:
+          '贡献和维护开源项目。我做的所有东西都是公开的，欢迎协作。',
+        icon: 'tabler:git-fork',
+      },
+      {
+        title: 'Web 开发',
+        description:
+          '使用现代框架进行全栈 Web 开发——Astro、React、VitePress、Node.js 等。',
+        icon: 'tabler:code',
+      },
+      {
+        title: '开发者工具',
+        description:
+          '构建让开发者生活更轻松的工具——从自动化脚本到追踪仪表板。',
+        icon: 'tabler:tool',
       },
     ]}
   />
@@ -145,34 +139,34 @@ const metadata = {
     title="常见问题"
     items={[
       {
-        title: '您开发了哪些类型的产品？',
+        title: '什么是 awesome-geo？',
         description:
-          '我开发了各种产品，包括移动应用、网络平台、生产力工具、电子商务解决方案和定制商业软件。每个产品都是为解决特定问题和满足独特用户需求而量身定制的。',
+          'awesome-geo 是一个精选的 120+ 生成式引擎优化（GEO）资源列表。涵盖研究论文、工具、策略和最佳实践，帮助优化内容以被 ChatGPT、Perplexity、Google AI Overviews 等 AI 搜索引擎引用。',
       },
       {
-        title: '您如何处理新项目？',
+        title: '什么是 ClawRecord？',
         description:
-          '我采用协作式方法，从理解您的需求开始，进行架构规划，在定期反馈下迭代开发，并通过测试确保质量后再部署。',
+          'ClawRecord 是 OpenClaw 的游戏化追踪系统——可以理解为 AI 助手版的 Duolingo。它自动追踪你的 OpenClaw 使用情况，转化为经验值、等级、成就和全球排行榜。使用 Python 和 Node.js 构建。',
       },
       {
-        title: '您可以在现有项目上工作吗？',
+        title: '你的项目是开源的吗？',
         description:
-          '是的，我可以帮助改进、维护或扩展现有项目。我可以审查代码、修复问题、添加新功能或协助迁移到更新的技术。',
+          '是的！我所有的项目都是开源的，可以在 GitHub 上找到。我相信公开构建和社区协作。欢迎 star、fork 或贡献代码。',
       },
       {
-        title: '您专长于哪些技术？',
+        title: '你用什么技术栈？',
         description:
-          '我使用现代网络技术（React、Vue、Node.js）、移动开发（React Native、Flutter）、数据库、云服务和各种API。我会为每个项目选择最佳的技术堆栈。',
+          '我主要使用 TypeScript、JavaScript、Python 和 Node.js。Web 项目使用 Astro、React、VitePress 和 Tailwind CSS。后端和自动化方面，Python 和 GitHub Actions 是我的首选工具。',
       },
       {
-        title: '您如何确保项目质量？',
+        title: '我可以参与贡献吗？',
         description:
-          '通过全面测试、代码审查、性能优化、安全审计和持续维护来确保质量。我还提供文档和支持，以便顺利交接项目。',
+          '当然可以！我所有项目都欢迎贡献。查看 GitHub 仓库中的 issues，或者直接提交 PR。awesome-geo 可以提交新资源，ClawRecord 欢迎功能请求和 bug 报告。',
       },
       {
-        title: '您的开发流程是什么？',
+        title: '怎么联系你？',
         description:
-          '我的流程包括需求分析、设计规划、开发冲刺、定期客户沟通、测试阶段和部署。我在整个项目生命周期中保持透明度。',
+          '最好的方式是通过 GitHub——在我的任何仓库中开 issue 或者发起 discussion。你也可以通过本站的联系页面找到我。',
       },
     ]}
   >
@@ -182,25 +176,16 @@ const metadata = {
   </FAQs>
 
   <Features3
-    title="让我们讨论您的项目"
-    subtitle="我在这里帮助将您的想法变为现实，并回答有关开发服务的任何问题。"
+    title="联系我"
+    subtitle="想合作或者打个招呼？"
     columns={3}
     items={[
-      {
-        title: '邮箱',
-        icon: 'tabler:mail',
-        callToAction: {
-          text: '写信给我',
-          href: '/zh/contact',
-          variant: 'link',
-        },
-      },
       {
         title: 'GitHub',
         icon: 'tabler:brand-github',
         callToAction: {
           target: '_blank',
-          text: '查看代码',
+          text: '关注我',
           href: 'https://github.com/luka2chat',
           variant: 'link',
         },
@@ -214,6 +199,15 @@ const metadata = {
           variant: 'link',
         },
       },
+      {
+        title: '联系',
+        icon: 'tabler:mail',
+        callToAction: {
+          text: '发消息',
+          href: '/zh/contact',
+          variant: 'link',
+        },
+      },
     ]}
   />
 
@@ -222,16 +216,16 @@ const metadata = {
       {
         variant: 'primary',
         target: '_blank',
-        text: '查看项目',
-        href: 'https://github.com/luka2chat',
-        icon: 'tabler:arrow-right',
+        text: '给 awesome-geo 点 Star',
+        href: 'https://github.com/luka2chat/awesome-geo',
+        icon: 'tabler:star',
       },
     ]}
   >
-    <Fragment slot="title">准备好开始您的项目了吗？</Fragment>
+    <Fragment slot="title">看看 awesome-geo</Fragment>
 
     <Fragment slot="subtitle">
-      让我们合作，将您的想法变为现实。我在这里帮助您构建有影响力的创新解决方案。
+      一个精选的 120+ 生成式引擎优化资源列表。如果觉得有用，在 GitHub 上给个 star 吧！
     </Fragment>
   </CallToAction>
 </Layout>

@@ -7,219 +7,128 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: '关于我们',
+  title: '关于 - luka2chat',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
-    tagline="关于我们"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
+    tagline="关于我"
   >
     <Fragment slot="title">
-      提升您的在线形象 <br />
-      <span class="text-accent dark:text-white highlight"> 美丽的网站模板</span>
+      独立开发者<br class="hidden sm:inline" /> 公开构建
     </Fragment>
 
     <Fragment slot="subtitle">
-      我们致力于创造创新的数字解决方案，帮助企业和个人实现他们的目标。凭借多年的软件开发经验，我们打造解决现实世界问题并产生积极影响的产品。
+      我是 Luka——一个为了乐趣而编程的独立开发者。我构建专注于 AI、生成式引擎优化和游戏化的开源工具。我做的所有东西都在 GitHub 上公开。
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
-
   <Stats
-    title="关于我们的数据"
+    title="数据一览"
     stats={[
-      { title: '项目', amount: '25+' },
-      { title: '用户', amount: '50K+' },
-      { title: '技术', amount: '12+' },
-      { title: '经验年限', amount: '8+' },
+      { title: '公开仓库', amount: '9' },
+      { title: '获得 Stars', amount: '17' },
+      { title: '贡献次数', amount: '81' },
+      { title: '参与贡献的项目', amount: '2' },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
   <Features3
-    title="我们的专业领域"
-    subtitle="我们专注于软件开发的各个领域，为每个项目带来专业知识和创新解决方案。"
+    title="活跃项目"
+    subtitle="我目前正在开发和贡献的项目。"
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: '网站开发',
+        title: 'awesome-geo',
         description:
-          '使用先进技术构建现代网络应用，专注于性能、可扩展性和用户体验。',
-        icon: 'tabler:template',
+          '精选的 120+ 生成式引擎优化资源列表——帮助内容创作者被 AI 搜索引擎引用。我获得最多 star 的项目。',
+        icon: 'tabler:star',
       },
       {
-        title: '移动应用开发',
+        title: 'ClawRecord',
         description:
-          '为iOS和Android开发原生和跨平台移动应用，在各种设备上提供无缝的用户体验。',
-        icon: 'tabler:template',
+          '游戏化 OpenClaw 追踪系统，包含经验值、等级、成就和全球排行榜。使用 Python 和 Node.js 构建。',
+        icon: 'tabler:device-gamepad-2',
       },
       {
-        title: 'AI集成',
+        title: 'ClawRecord Leaderboard',
         description:
-          '由人工智能和机器学习驱动的智能解决方案，增强功能和自动化。',
-        icon: 'tabler:template',
+          '去中心化全球排行榜，对 OpenClaw 用户进行排名，包含竞技联赛。',
+        icon: 'tabler:chart-bar',
       },
     ]}
   />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="驱动力"
+    subtitle="指导我构建什么、怎么构建的原则。"
     items={[
       {
-        title: 'Customer-centric approach',
+        title: '公开构建',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          '我做的所有东西从第一天起就是开源的。我分享进展，从社区学习，欢迎贡献。',
       },
       {
-        title: 'Constant Improvement',
+        title: '解决真实问题',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          '我构建自己真正需要的工具——无论是整理 GEO 资源，还是游戏化 AI 助手使用追踪。',
       },
       {
-        title: 'Ethical Practices',
+        title: '保持有趣',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Coding for fun 是我的座右铭。游戏化、创意副项目和探索新技术让我保持动力和效率。',
       },
     ]}
   />
 
-  <!-- Steps2 Widget ****************** -->
-
   <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    title="我构建的项目"
+    subtitle="我在 GitHub 上的开源项目。"
     isReversed={true}
     callToAction={{
-      text: 'See more',
-      href: '/',
+      text: '查看 GitHub',
+      href: 'https://github.com/luka2chat',
+      target: '_blank',
     }}
     items={[
       {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
+        title: 'awesome-geo',
+        description: '精选的 120+ 生成式引擎优化资源列表——我获得最多 star 的项目，有 17 颗星。',
+        icon: 'tabler:star',
       },
       {
-        title: 'Positive customer feedback and reviews',
+        title: 'ClawRecord',
         description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
+          '游戏化 OpenClaw 追踪系统，包含经验值、等级、成就和全球排行榜。使用 Python 和 Node.js 构建。',
+        icon: 'tabler:device-gamepad-2',
       },
       {
-        title: 'Awards and recognition as industry experts',
+        title: 'ClawRecord Leaderboard',
         description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
+          '去中心化全球排行榜，对 OpenClaw 用户进行排名——从青铜到钻石的竞技联赛。',
+        icon: 'tabler:chart-bar',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="联系我"
+    tagline="联系方式"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
+        title: 'GitHub',
         description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+          '在我的任何仓库中开 issue 或者发起 discussion。这是联系我讨论项目相关话题的最好方式。',
+        icon: 'tabler:brand-github',
       },
       {
-        title: 'Call us',
+        title: '联系页面',
         description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+          '通过本站的联系表单给我发消息，适合一般咨询或合作提议。',
+        icon: 'tabler:mail',
       },
     ]}
   />

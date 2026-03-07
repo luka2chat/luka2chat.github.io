@@ -7,192 +7,127 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About - luka2chat',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
+    tagline="About me"
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white highlight"> Beautiful Website Templates</span>
+      Independent Developer<br class="hidden sm:inline" /> Building in Public
     </Fragment>
 
     <Fragment slot="subtitle">
-      We are dedicated to creating innovative digital solutions that empower businesses and individuals to achieve their goals. With years of experience in software development, we craft products that solve real-world problems and make a positive impact.
+      I'm Luka — an independent developer who codes for fun. I build open-source tools focused on AI, generative engine optimization, and gamification. Everything I make is public on GitHub.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
-
   <Stats
-    title="Statistics about us"
+    title="By the Numbers"
     stats={[
-      { title: 'Projects', amount: '25+' },
-      { title: 'Users', amount: '50K+' },
-      { title: 'Technologies', amount: '12+' },
-      { title: 'Experience Years', amount: '8+' },
+      { title: 'Public Repos', amount: '9' },
+      { title: 'Stars Earned', amount: '17' },
+      { title: 'Contributions', amount: '81' },
+      { title: 'Projects Contributed To', amount: '2' },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
   <Features3
-    title="Our expertise"
-    subtitle="We specialize in various domains of software development, bringing expertise and innovation to every project we undertake."
+    title="Active Projects"
+    subtitle="What I'm currently working on and contributing to."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Web Development',
+        title: 'awesome-geo',
         description:
-          'Modern web applications built with cutting-edge technologies, focusing on performance, scalability, and user experience.',
-        icon: 'tabler:template',
+          'A curated list of 120+ resources for Generative Engine Optimization — helping content creators get cited by AI search engines. My most-starred project.',
+        icon: 'tabler:star',
       },
       {
-        title: 'Mobile Development',
+        title: 'ClawRecord',
         description:
-          'Native and cross-platform mobile applications for iOS and Android, delivering seamless user experiences across devices.',
-        icon: 'tabler:template',
+          'Gamified OpenClaw tracking with XP, levels, achievements, and a global leaderboard. Built with Python and Node.js.',
+        icon: 'tabler:device-gamepad-2',
       },
       {
-        title: 'AI Integration',
+        title: 'ClawRecord Leaderboard',
         description:
-          'Intelligent solutions powered by artificial intelligence and machine learning, enhancing functionality and automation.',
-        icon: 'tabler:template',
+          'Decentralized global leaderboard for ranking OpenClaw tamers worldwide with competitive leagues.',
+        icon: 'tabler:chart-bar',
       },
     ]}
   />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Complete e-commerce solutions with secure payment processing, inventory management, and customer engagement features.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Data Analytics',
-        description:
-          'Advanced data processing and visualization tools that help businesses make informed decisions based on insights.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Cloud Solutions',
-        description:
-          'Scalable cloud-based applications and infrastructure that grow with your business needs and requirements.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'API Development',
-        description:
-          'Robust and well-documented APIs that enable seamless integration between different systems and platforms.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Security',
-        description:
-          'Implementation of industry-standard security measures to protect user data and maintain application integrity.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Consulting',
-        description:
-          'Expert guidance on technology choices, architecture design, and best practices for software development projects.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="We believe in creating technology that makes a positive difference, guided by principles that ensure quality, ethics, and customer satisfaction."
+    title="What Drives Me"
+    subtitle="The principles behind how I build and what I choose to work on."
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Build in public',
         description:
-          'Every decision we make is centered around delivering value to our customers and exceeding their expectations through quality solutions.',
+          'Everything I make is open source from day one. I share my progress, learn from the community, and welcome contributions.',
       },
       {
-        title: 'Continuous Innovation',
+        title: 'Solve real problems',
         description:
-          'We stay at the forefront of technology trends, continuously learning and adapting to provide cutting-edge solutions.',
+          'I build tools that I actually need — whether it\'s curating GEO resources or gamifying AI assistant usage tracking.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Keep it fun',
         description:
-          'We maintain the highest standards of integrity in all our work, ensuring transparency, honesty, and respect in every interaction.',
+          'Coding for fun is my motto. Gamification, creative side projects, and exploring new tech keep me motivated and productive.',
       },
     ]}
   />
 
-  <!-- Steps2 Widget ****************** -->
-
   <Steps2
-    title="Achievements"
-    subtitle="Our commitment to excellence has led to numerous successful projects and positive outcomes for our clients and users worldwide."
+    title="What I've Built"
+    subtitle="My own open-source projects on GitHub."
     isReversed={true}
     callToAction={{
-      text: 'See more',
-      href: '/',
+      text: 'View my GitHub',
+      href: 'https://github.com/luka2chat',
+      target: '_blank',
     }}
     items={[
       {
-        title: 'Global reach',
-        description: 'Our products and services have reached users across different continents, making a worldwide impact.',
-        icon: 'tabler:globe',
+        title: 'awesome-geo',
+        description: 'A curated list of 120+ Generative Engine Optimization resources — my most-starred project with 17 stars.',
+        icon: 'tabler:star',
       },
       {
-        title: 'Positive customer feedback and reviews',
+        title: 'ClawRecord',
         description:
-          'Consistently high ratings and positive feedback from clients who have experienced the quality of our work.',
-        icon: 'tabler:message-star',
+          'Gamified OpenClaw tracking with XP, levels, achievements, and a global leaderboard. Built with Python and Node.js.',
+        icon: 'tabler:device-gamepad-2',
       },
       {
-        title: 'Recognition for innovation and quality',
+        title: 'ClawRecord Leaderboard',
         description:
-          'Acknowledgment from industry peers and communities for our innovative approaches and high-quality deliverables.',
-        icon: 'tabler:award',
+          'Decentralized global leaderboard for ranking OpenClaw tamers worldwide — competitive leagues from Bronze to Diamond.',
+        icon: 'tabler:chart-bar',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="Get in touch"
-    tagline="Contact us"
+    title="Get in Touch"
+    tagline="Contact"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
+        title: 'GitHub',
         description:
-          'Start a conversation with our team to discuss your project requirements and get expert advice on your development needs.',
-        icon: 'tabler:messages',
+          'Open an issue or start a discussion on any of my repos. This is the best way to reach me for project-related topics.',
+        icon: 'tabler:brand-github',
       },
       {
-        title: 'Email us',
+        title: 'Contact Page',
         description:
-          'Send us a detailed message about your project, and we will get back to you with a comprehensive response and next steps.',
+          'Send me a message through the contact form on this site for general inquiries or collaboration proposals.',
         icon: 'tabler:mail',
       },
     ]}
