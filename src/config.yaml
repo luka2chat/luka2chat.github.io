@@ -16,13 +16,13 @@ metadata:
   openGraph:
     site_name: Luka2Chat
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/blog/after-hero.webp'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@luka2chat'
+    site: '@luka2chat'
     cardType: summary_large_image
 
 i18n:
