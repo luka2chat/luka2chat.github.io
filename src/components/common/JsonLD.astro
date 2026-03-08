@@ -9,15 +9,21 @@ const personSchema = {
   "name": "Luka2Chat",
   "url": SITE.site,
   "sameAs": [
-    "https://github.com/luka2chat",
-    "https://twitter.com/luka2chat",
-    "https://www.linkedin.com/in/luka2chat/"
+    "https://github.com/luka2chat"
   ],
   "jobTitle": "Independent Developer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Self-Employed"
-  }
+  "description": "Independent developer focused on generative engine optimization, game data tracking, and LLM-powered applications.",
+  "knowsAbout": ["Generative Engine Optimization", "AI", "LLM", "Open Source", "Web Development"]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": SITE.name,
+  "url": SITE.site,
+  "description": "Independent Developer Portfolio: Explore innovative software development, AI tools, and solutions to enhance your digital experience.",
+  "author": { "@type": "Person", "name": "Luka2Chat" },
+  "inLanguage": ["en", "zh"]
 };
 
 const faqSchema = {
@@ -26,56 +32,40 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What types of products have you developed?",
+      "name": "What is awesome-geo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I have developed a wide range of products including mobile applications, web platforms, productivity tools, e-commerce solutions, and custom business software. Each product is tailored to solve specific problems and meet unique user needs."
+        "text": "awesome-geo is a curated list of 120+ resources for Generative Engine Optimization (GEO). It covers research papers, tools, strategies, and best practices for optimizing content to be cited by AI search engines like ChatGPT, Perplexity, and Google AI Overviews."
       }
     },
     {
       "@type": "Question",
-      "name": "How do you approach new projects?",
+      "name": "What is ClawRecord?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I follow a collaborative approach that starts with understanding your requirements, planning the architecture, developing iteratively with regular feedback, and ensuring quality through testing before deployment."
+        "text": "ClawRecord is a gamified tracking system for OpenClaw — think of it as Duolingo for your AI assistant. It automatically tracks your OpenClaw usage and turns it into XP, levels, achievements, and a global leaderboard. Built with Python and Node.js."
       }
     },
     {
       "@type": "Question",
-      "name": "Can you work on existing projects?",
+      "name": "Are your projects open source?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, I can help improve, maintain, or extend existing projects. I can review code, fix issues, add new features, or help migrate to newer technologies."
+        "text": "Yes! All my projects are open source and available on GitHub. I believe in building in public and collaborating with the community. Feel free to star, fork, or contribute."
       }
     },
     {
       "@type": "Question",
-      "name": "What technologies do you specialize in?",
+      "name": "Can I contribute to your projects?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I work with modern web technologies (React, Vue, Node.js), mobile development (React Native, Flutter), databases, cloud services, and various APIs. I choose the best technology stack for each project."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you ensure project quality?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Quality is ensured through comprehensive testing, code reviews, performance optimization, security audits, and ongoing maintenance. I also provide documentation and support for smooth project handover."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is your development process?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "My process includes requirement analysis, design planning, development sprints, regular client communication, testing phases, and deployment. I maintain transparency throughout the project lifecycle."
+        "text": "Absolutely! All my projects welcome contributions. Check out the issues on any of my GitHub repos, or open a PR. For awesome-geo, you can submit new resources. For ClawRecord, feature requests and bug reports are always appreciated."
       }
     }
   ]
 };
 
-const schemas = [personSchema, faqSchema];
+const schemas = [personSchema, websiteSchema, faqSchema];
 ---
 
 {schemas.map((schema) => (
