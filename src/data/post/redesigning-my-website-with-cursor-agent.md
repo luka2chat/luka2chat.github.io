@@ -3,7 +3,7 @@ publishDate: 2026-03-08T00:00:00Z
 author: luka2chat
 title: "I Redesigned My Entire Website in One Hour — Without Writing a Single Line of Code"
 excerpt: How I used Cursor Agent to completely redesign my portfolio site, taking inspiration from impeccable.style, and went from a generic template look to an editorial, magazine-quality aesthetic — fully autonomously.
-image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80
+image: ~/assets/images/blog/after-hero.webp
 category: Development Tools
 tags:
   - cursor

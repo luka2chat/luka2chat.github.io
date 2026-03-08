@@ -3,7 +3,7 @@ publishDate: 2026-03-08T00:00:00Z
 author: luka2chat
 title: "一小时重新设计整个网站——我一行代码都没写"
 excerpt: 我用 Cursor Agent 全自动完成了个人网站的整体重新设计，参考 impeccable.style 的风格，从千篇一律的模板风变成了杂志级的编辑美学——全程无人干预。
-image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80
+image: ~/assets/images/blog/after-hero.webp
 category: Development Tools
 tags:
   - cursor
