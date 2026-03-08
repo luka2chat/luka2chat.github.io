@@ -1,0 +1,45 @@
+# Luka2Chat
+
+> Luka2Chat is an independent developer focused on generative engine optimization (GEO), AI-powered applications, and gamification systems. All projects are open source and available on GitHub.
+
+## About
+
+Luka is an independent developer who builds in public. Focused areas include curating GEO resources for AI search engine optimization, building gamified tracking systems, and developing LLM-powered tools. Everything is open source from day one.
+
+## Contact
+
+- Website: https://luka2chat.com
+- GitHub: https://github.com/luka2chat
+- Twitter: https://twitter.com/luka2chat
+
+
+## Projects
+
+- [awesome-geo](https://github.com/luka2chat/awesome-geo): A curated list of 120+ resources for Generative Engine Optimization — optimizing content for AI search engines like ChatGPT, Perplexity, Claude, and Google AI Overviews
+- [ClawRecord](https://github.com/luka2chat/ClawRecord): Gamified OpenClaw tracking system with XP, levels, achievements, skill trees, daily quests, and a global leaderboard — built with Python and Node.js
+- [ClawRecord Leaderboard](https://github.com/luka2chat/clawrecord-leaderboard): Decentralized global leaderboard for OpenClaw tamers with competitive leagues from Bronze to Diamond
+
+## Key Information
+
+- [About](https://luka2chat.com/about): Background on Luka2Chat and development philosophy
+- [Blog](https://luka2chat.com/blog): Articles on AI tools, GEO strategies, developer workflows, and tech reviews
+- [Services](https://luka2chat.com/services): Available services and project templates
+- [Pricing](https://luka2chat.com/pricing): Plans and pricing information
+- [Contact](https://luka2chat.com/contact): Get in touch for collaboration or inquiries
+
+## Focus Areas
+
+- Generative Engine Optimization (GEO): Researching and curating best practices for content visibility in AI-powered search engines
+- LLM-Powered Applications: Building tools that leverage large language models for developer productivity
+- Gamification Systems: Designing engagement mechanics like XP, levels, achievements, and leaderboards
+- Open Source Development: All projects are public and open for community collaboration
+
+## Tech Stack
+
+TypeScript, JavaScript, Python, Node.js, React, Astro, Tailwind CSS, Vite
+
+## Optional
+
+- [Terms of Service](https://luka2chat.com/terms)
+- [Privacy Policy](https://luka2chat.com/privacy)
+- [RSS Feed](https://luka2chat.com/rss.xml)

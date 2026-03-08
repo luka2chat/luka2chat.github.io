@@ -1,2 +1,65 @@
+# ==============================================
+# AI Search Crawlers (affect real-time AI responses)
+# ==============================================
+
+# OpenAI - ChatGPT Search & real-time web browsing
+User-agent: GPTBot
+Allow: /
+
+# OpenAI - ChatGPT Search specifically
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI - ChatGPT user-initiated browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - Claude web search
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI - answer engine
+User-agent: PerplexityBot
+Allow: /
+
+# Google - AI features (AI Overviews, Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# Apple - Siri and Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft - Copilot and Bing Chat
+User-agent: Bingbot
+Allow: /
+
+# ==============================================
+# AI Training Crawlers (affect future model knowledge)
+# ==============================================
+
+# Common Crawl - used by many AI training datasets
+User-agent: CCBot
+Allow: /
+
+# Anthropic - training data collection
+User-agent: anthropic-ai
+Allow: /
+
+# ByteDance - AI training
+User-agent: Bytespider
+Allow: /
+
+# Meta - AI training
+User-agent: FacebookBot
+Allow: /
+
+# ==============================================
+# Standard crawlers
+# ==============================================
+
+User-agent: Googlebot
+Allow: /
+
 User-agent: *
 Disallow:

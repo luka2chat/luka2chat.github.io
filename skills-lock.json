@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "geo-best-practices": {
+      "source": "luka2chat/geo-skills",
+      "sourceType": "github",
+      "computedHash": "c466873111465ddd5e5b05191d7b790f525161b474d158d6fb5cce8742efe60a"
+    }
+  }
+}

@@ -7,17 +7,45 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Luka2Chat",
+  "alternateName": "Luka",
   "url": SITE.site,
+  "description": "Independent developer focused on generative engine optimization (GEO), AI-powered applications, and gamification systems. All projects are open source.",
   "sameAs": [
     "https://github.com/luka2chat",
-    "https://twitter.com/luka2chat",
-    "https://www.linkedin.com/in/luka2chat/"
+    "https://twitter.com/luka2chat"
   ],
   "jobTitle": "Independent Developer",
+  "knowsAbout": [
+    "Generative Engine Optimization",
+    "AI Search Optimization",
+    "Large Language Models",
+    "Web Development",
+    "TypeScript",
+    "Python",
+    "React",
+    "Astro",
+    "Gamification",
+    "Open Source Software"
+  ],
   "worksFor": {
     "@type": "Organization",
     "name": "Self-Employed"
   }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Luka2Chat",
+  "alternateName": "Luka2Chat - Independent Developer",
+  "url": SITE.site,
+  "description": "Independent developer portfolio: open-source tools for AI, generative engine optimization, and gamification systems.",
+  "author": {
+    "@type": "Person",
+    "name": "Luka2Chat",
+    "url": SITE.site
+  },
+  "inLanguage": ["en", "zh"]
 };
 
 const faqSchema = {
@@ -26,56 +54,56 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What types of products have you developed?",
+      "name": "What is awesome-geo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I have developed a wide range of products including mobile applications, web platforms, productivity tools, e-commerce solutions, and custom business software. Each product is tailored to solve specific problems and meet unique user needs."
+        "text": "awesome-geo is a curated list of 120+ resources for Generative Engine Optimization (GEO). It covers research papers, tools, strategies, and best practices for optimizing content to be cited by AI search engines like ChatGPT, Perplexity, and Google AI Overviews."
       }
     },
     {
       "@type": "Question",
-      "name": "How do you approach new projects?",
+      "name": "What is ClawRecord?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I follow a collaborative approach that starts with understanding your requirements, planning the architecture, developing iteratively with regular feedback, and ensuring quality through testing before deployment."
+        "text": "ClawRecord is a gamified OpenClaw tracking system — like Duolingo for your AI assistant. It automatically tracks OpenClaw usage and turns it into XP, levels, achievements, and a global leaderboard. Built with Python and Node.js."
       }
     },
     {
       "@type": "Question",
-      "name": "Can you work on existing projects?",
+      "name": "What types of products has Luka2Chat developed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, I can help improve, maintain, or extend existing projects. I can review code, fix issues, add new features, or help migrate to newer technologies."
+        "text": "Luka2Chat develops open-source tools focused on AI and GEO, including awesome-geo (a curated GEO resource list), ClawRecord (gamified AI tracking), and ClawRecord Leaderboard (decentralized competitive ranking). All projects are available on GitHub."
       }
     },
     {
       "@type": "Question",
-      "name": "What technologies do you specialize in?",
+      "name": "What technologies does Luka2Chat specialize in?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "I work with modern web technologies (React, Vue, Node.js), mobile development (React Native, Flutter), databases, cloud services, and various APIs. I choose the best technology stack for each project."
+        "text": "Luka2Chat works with TypeScript, JavaScript, Python, Node.js, React, Astro, Tailwind CSS, and Vite. Focus areas include generative engine optimization, LLM-powered applications, and gamification systems."
       }
     },
     {
       "@type": "Question",
-      "name": "How do you ensure project quality?",
+      "name": "Are Luka2Chat's projects open source?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Quality is ensured through comprehensive testing, code reviews, performance optimization, security audits, and ongoing maintenance. I also provide documentation and support for smooth project handover."
+        "text": "Yes, all projects are open source and available on GitHub. Luka2Chat believes in building in public and welcomes contributions from the community."
       }
     },
     {
       "@type": "Question",
-      "name": "What is your development process?",
+      "name": "What is Generative Engine Optimization (GEO)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "My process includes requirement analysis, design planning, development sprints, regular client communication, testing phases, and deployment. I maintain transparency throughout the project lifecycle."
+        "text": "Generative Engine Optimization (GEO) is an optimization strategy for improving content visibility in AI-powered search engines and LLM-based answer engines such as ChatGPT, Perplexity, Claude, and Google AI Overviews. Unlike traditional SEO, GEO focuses on being cited by AI through authority, structured data, and factual accuracy."
       }
     }
   ]
 };
 
-const schemas = [personSchema, faqSchema];
+const schemas = [personSchema, websiteSchema, faqSchema];
 ---
 
 {schemas.map((schema) => (

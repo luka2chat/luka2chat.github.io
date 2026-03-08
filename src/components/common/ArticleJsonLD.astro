@@ -1,0 +1,44 @@
+---
+import { SITE } from 'astrowind:config';
+import type { Post } from '~/types';
+
+export interface Props {
+  post: Post;
+  url: string | URL;
+}
+
+const { post, url } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.excerpt || '',
+  "author": {
+    "@type": "Person",
+    "name": post.author || "Luka2Chat",
+    "url": SITE.site,
+    "sameAs": [
+      "https://github.com/luka2chat",
+      "https://twitter.com/luka2chat"
+    ]
+  },
+  "datePublished": post.publishDate ? new Date(post.publishDate).toISOString() : undefined,
+  "dateModified": post.updateDate ? new Date(post.updateDate).toISOString() : (post.publishDate ? new Date(post.publishDate).toISOString() : undefined),
+  "publisher": {
+    "@type": "Person",
+    "name": "Luka2Chat",
+    "url": SITE.site
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": String(url)
+  },
+  ...(post.image ? { "image": typeof post.image === 'string' ? post.image : post.image.src } : {}),
+  ...(post.tags ? { "keywords": post.tags.map(t => t.title) } : {}),
+  ...(post.category ? { "articleSection": post.category.title } : {}),
+  "inLanguage": String(url).includes('/zh/') ? "zh" : "en"
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
