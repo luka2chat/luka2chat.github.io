@@ -61,7 +61,7 @@ export const getFooterData = (lang: Language = 'en') => {
       links: '链接',
       awesomeGeo: 'awesome-geo',
       clawrecord: 'ClawRecord',
-      leaderboard: '排行榜',
+      geoSkills: 'geo-skills',
       blog: '博客',
       about: '关于',
       contact: '联系',
@@ -74,7 +74,7 @@ export const getFooterData = (lang: Language = 'en') => {
       links: 'Links',
       awesomeGeo: 'awesome-geo',
       clawrecord: 'ClawRecord',
-      leaderboard: 'Leaderboard',
+      geoSkills: 'geo-skills',
       blog: 'Blog',
       about: 'About',
       contact: 'Contact',
@@ -92,7 +92,7 @@ export const getFooterData = (lang: Language = 'en') => {
         links: [
           { text: texts.awesomeGeo, href: 'https://github.com/luka2chat/awesome-geo' },
           { text: texts.clawrecord, href: 'https://github.com/luka2chat/clawrecord' },
-          { text: texts.leaderboard, href: 'https://github.com/luka2chat/clawrecord-leaderboard' },
+          { text: texts.geoSkills, href: 'https://github.com/luka2chat/geo-skills' },
         ],
       },
       {
