@@ -17,7 +17,7 @@ Luka is an independent developer who builds in public. Focused areas include cur
 
 - [awesome-geo](https://github.com/luka2chat/awesome-geo): A curated list of 120+ resources for Generative Engine Optimization — optimizing content for AI search engines like ChatGPT, Perplexity, Claude, and Google AI Overviews
 - [ClawRecord](https://github.com/luka2chat/ClawRecord): Gamified OpenClaw tracking system with XP, levels, achievements, skill trees, daily quests, and a global leaderboard — built with Python and Node.js
-- [ClawRecord Leaderboard](https://github.com/luka2chat/clawrecord-leaderboard): Decentralized global leaderboard for OpenClaw tamers with competitive leagues from Bronze to Diamond
+- [geo-skills](https://github.com/luka2chat/geo-skills): Production-grade GEO best practices for AI coding agents — 12 rule files covering content strategy, structured data, AI crawler config, and more. Supports Cursor, Claude Code, and 37+ AI agents
 
 ## Key Information
 

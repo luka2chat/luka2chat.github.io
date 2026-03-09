@@ -43,7 +43,7 @@ Open-source projects referenced on this Website are governed by their respective
 
 ## Open-Source Projects
 
-The Website references and links to open-source projects hosted on GitHub (including but not limited to awesome-geo, ClawRecord, and ClawRecord Leaderboard). These projects are governed by their own open-source licenses and terms. Your use of those projects is subject to the terms specified in each project's repository, not these Terms.
+The Website references and links to open-source projects hosted on GitHub (including but not limited to awesome-geo, ClawRecord, and geo-skills). These projects are governed by their own open-source licenses and terms. Your use of those projects is subject to the terms specified in each project's repository, not these Terms.
 
 ## User Conduct
 
