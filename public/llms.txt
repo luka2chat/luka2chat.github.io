@@ -1,10 +1,10 @@
 # Luka2Chat
 
-> Luka2Chat is an independent developer focused on generative engine optimization (GEO), AI-powered applications, and gamification systems. All projects are open source and available on GitHub.
+> Luka2Chat is an indie maker focused on generative engine optimization (GEO), AI-powered applications, and gamification systems. All projects are open source and available on GitHub.
 
 ## About
 
-Luka is an independent developer who builds in public. Focused areas include curating GEO resources for AI search engine optimization, building gamified tracking systems, and developing LLM-powered tools. Everything is open source from day one.
+Luka is an indie maker who builds in public. Focused areas include curating GEO resources for AI search engine optimization, building gamified tracking systems, and developing LLM-powered tools. Everything is open source from day one.
 
 ## Contact
 
