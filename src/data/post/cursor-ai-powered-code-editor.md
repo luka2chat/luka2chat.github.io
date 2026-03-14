@@ -3,7 +3,7 @@ publishDate: 2025-07-19T00:00:00Z
 author: luka2chat
 title: Cursor - The Revolutionary AI-Powered Code Editor
 excerpt: Discover how Cursor is transforming the way developers write code with its advanced AI capabilities, intelligent autocomplete, and seamless development experience.
-image: https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80
+image: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80
 category: Development Tools
 tags:
   - cursor

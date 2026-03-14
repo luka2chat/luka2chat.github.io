@@ -3,7 +3,7 @@ publishDate: 2025-07-28T00:00:00Z
 author: luka2chat
 title: Coze - 革命性的无代码AI机器人开发平台
 excerpt: 了解Coze如何让AI机器人创建民主化，使任何人都能在无需编程技能的情况下构建强大的对话式AI应用。
-image: https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80
+image: https://images.unsplash.com/photo-1676299081847-824916de030a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
 category: AI & Development
 tags:
   - coze

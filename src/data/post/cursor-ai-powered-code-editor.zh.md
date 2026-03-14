@@ -3,7 +3,7 @@ publishDate: 2025-07-19T00:00:00Z
 author: luka2chat
 title: Cursor - 革命性的AI驱动代码编辑器
 excerpt: 了解Cursor如何通过其先进的AI功能、智能自动补全和无缝开发体验来改变开发者编写代码的方式。
-image: https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80
+image: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80
 category: Development Tools
 tags:
   - cursor
