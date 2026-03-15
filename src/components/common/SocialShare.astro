@@ -62,4 +62,76 @@ const { text, url, class: className = 'inline-block' } = Astro.props;
       class="w-6 h-6 text-gray-400 dark:text-slate-500 hover:text-black dark:hover:text-slate-300"
     />
   </button>
+  <button
+    class="ml-2 rtl:ml-0 rtl:mr-2 relative"
+    title="Copy for X / 复制全文用于发布"
+    data-aw-copy-for-x
+    data-aw-url={url}
+    data-aw-text={text}
+    ><Icon
+      name="tabler:copy"
+      class="w-6 h-6 text-gray-400 dark:text-slate-500 hover:text-black dark:hover:text-slate-300"
+    />
+    <span class="copy-toast pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black/80 px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200">
+      Copied!
+    </span>
+  </button>
 </div>
+
+<script>
+  function setupCopyForX() {
+    document.querySelectorAll('[data-aw-copy-for-x]').forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const button = btn as HTMLElement;
+        const title = button.getAttribute('data-aw-text') || '';
+        const url = button.getAttribute('data-aw-url') || '';
+
+        const proseEl = document.querySelector('.prose');
+        if (!proseEl) return;
+
+        const lines: string[] = [];
+
+        proseEl.querySelectorAll('h2, h3, p, li').forEach((el) => {
+          const tag = el.tagName.toLowerCase();
+          const text = (el as HTMLElement).innerText.trim();
+          if (!text) return;
+
+          if (tag === 'h2') {
+            lines.push('');
+            lines.push(`## ${text}`);
+          } else if (tag === 'h3') {
+            lines.push(`### ${text}`);
+          } else if (tag === 'li') {
+            lines.push(`• ${text}`);
+          } else {
+            lines.push(text);
+          }
+        });
+
+        const body = lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+
+        const fullUrl = url.startsWith('http') ? url : `${window.location.origin}${url}`;
+        const output = `${title}\n\n${body}\n\n🔗 ${fullUrl}`;
+
+        try {
+          await navigator.clipboard.writeText(output);
+          const toast = button.querySelector('.copy-toast');
+          if (toast) {
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+              toast.classList.remove('opacity-100');
+              toast.classList.add('opacity-0');
+            }, 1500);
+          }
+        } catch {
+          // fallback
+        }
+      });
+    });
+  }
+
+  setupCopyForX();
+  document.addEventListener('astro:page-load', setupCopyForX);
+</script>
