@@ -27,17 +27,17 @@ const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.include
       </div>
 
       <div
-        class="absolute right-0 z-10 mb-2 bottom-full md:bottom-auto md:mb-0 md:mt-2 md:top-auto w-32 origin-bottom-right md:origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:ring-gray-600 hidden"
+        class="fixed left-4 right-4 bottom-16 z-50 md:absolute md:left-auto md:right-0 md:bottom-auto md:mt-2 w-auto md:w-32 origin-bottom md:origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:ring-gray-600 hidden"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="language-menu-button"
         id="language-menu"
       >
-        <div class="py-1" role="none">
+        <div class="py-1 flex md:block" role="none">
           {Object.entries(languages).map(([code, name]) => (
             <a
               href={alternatePaths[code as keyof typeof languages]}
-              class={`block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
+              class={`block flex-1 md:flex-none text-center md:text-left px-4 py-3 md:py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 ${
                 code === currentLang
                   ? 'text-gray-900 font-medium dark:text-gray-100'
                   : 'text-gray-700 dark:text-gray-300'
@@ -91,7 +91,6 @@ const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.include
   }
 
   function setupLanguageSelector() {
-    // 如果已经初始化过，先清理旧的事件监听器
     if (languageSelectorInitialized && currentButton && outsideClickHandler) {
       currentButton.removeEventListener('click', toggleMenu);
       document.removeEventListener('click', outsideClickHandler);
@@ -105,23 +104,18 @@ const isTagOrCategoryPage = currentPath.includes('/tag/') || currentPath.include
     currentButton = button;
     currentMenu = menu;
 
-    // 添加按钮点击事件
     button.addEventListener('click', toggleMenu);
 
-    // 添加外部点击事件
     outsideClickHandler = handleOutsideClick;
     document.addEventListener('click', outsideClickHandler);
 
     languageSelectorInitialized = true;
   }
 
-  // 初始化
   setupLanguageSelector();
 
-  // 页面导航时重新设置
   document.addEventListener('astro:page-load', setupLanguageSelector);
 
-  // 页面卸载时清理
   document.addEventListener('astro:before-preparation', () => {
     if (currentButton && outsideClickHandler) {
       currentButton.removeEventListener('click', toggleMenu);
