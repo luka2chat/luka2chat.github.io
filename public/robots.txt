@@ -63,3 +63,5 @@ Allow: /
 
 User-agent: *
 Disallow:
+
+Sitemap: https://luka2chat.com/sitemap-index.xml

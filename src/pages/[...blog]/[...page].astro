@@ -38,7 +38,7 @@ const blogSubtitle = lang === 'zh'
 const metadata = {
   title: `${blogTitle}${currentPage > 1 ? (lang === 'zh' ? ` — 第 ${currentPage} 页` : ` — Page ${currentPage}`) : ''}`,
   robots: {
-    index: blogListRobots?.index && currentPage === 1,
+    index: blogListRobots?.index,
     follow: blogListRobots?.follow,
   },
   openGraph: {
