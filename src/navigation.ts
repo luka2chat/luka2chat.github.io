@@ -32,7 +32,7 @@ export const getHeaderData = (lang: Language = 'en') => {
       },
       {
         text: texts.projects,
-        href: getLocalizedPath('/#projects', lang)
+        href: getLocalizedPath('/projects', lang)
       },
       {
         text: texts.blog,
@@ -98,6 +98,7 @@ export const getFooterData = (lang: Language = 'en') => {
       {
         title: texts.links,
         links: [
+          { text: texts.projects, href: getLocalizedPath('/projects', lang) },
           { text: texts.blog, href: getLocalizedPath('/blog', lang) },
           { text: texts.about, href: getLocalizedPath('/about', lang) },
           { text: texts.contact, href: getLocalizedPath('/contact', lang) },

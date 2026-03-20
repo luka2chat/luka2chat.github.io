@@ -1,0 +1,72 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import { Icon } from 'astro-icon/components';
+import { projects } from '~/data/projects';
+
+const metadata = {
+  title: '作品',
+  description: 'Luka2Chat 的开源项目 — GEO 资源、游戏化统计、AI 智能体技能等。',
+};
+
+const tagLabels: Record<string, string> = {
+  'open-source': '开源',
+  free: '免费',
+  GEO: 'GEO',
+  AI: 'AI',
+  tool: '工具',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="作品集">
+    <Fragment slot="title">
+      项目与作品
+    </Fragment>
+    <Fragment slot="subtitle">
+      我维护的开源工具与资源 — 生成式引擎优化、AI 智能体与游戏化统计。
+    </Fragment>
+  </Hero>
+
+  <WidgetWrapper id="projects-grid" containerClass="max-w-6xl mx-auto">
+    <Headline
+      title="已发布项目"
+      subtitle="全部在 GitHub 上。欢迎 Star、Fork 或提 Issue，贡献随时欢迎。"
+      classes={{ container: 'max-w-3xl', title: 'text-2xl md:text-3xl' }}
+    />
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-12">
+      {projects.map((project) => (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col border border-subtle bg-page p-6 md:p-8 rounded-xl transition-all duration-200 hover:border-primary/40 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/30"
+        >
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <Icon name={project.icon} class="w-10 h-10 text-primary shrink-0" />
+            <span class="text-primary opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+              <Icon name="tabler:arrow-up-right" class="w-5 h-5" />
+            </span>
+          </div>
+          <h3 class="text-lg font-semibold text-heading mb-2 group-hover:text-primary transition-colors">
+            {project.nameZh}
+          </h3>
+          <p class="text-muted text-sm leading-relaxed flex-1">
+            {project.descriptionZh}
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-subtle">
+            {project.tags.map((tag) => (
+              <span
+                class="text-xs font-medium px-2.5 py-1 rounded-md bg-muted/50 text-muted"
+              >
+                {tagLabels[tag] ?? tag}
+              </span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  </WidgetWrapper>
+</Layout>
