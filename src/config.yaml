@@ -9,7 +9,7 @@ metadata:
   title:
     default: Luka2Chat - Indie Maker | AI Tools & GEO
     template: '%s — Luka2Chat'
-  description: "Luka2Chat — indie maker shipping open-source tools for generative engine optimization, gamified tracking, and LLM-powered workflows."
+  description: "Luka2Chat — indie maker shipping open-source tools for generative engine optimization, making games with AI, and LLM-powered workflows."
   robots:
     index: true
     follow: true

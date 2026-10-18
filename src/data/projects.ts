@@ -25,14 +25,16 @@ export const projects: Project[] = [
     tags: ['open-source', 'free', 'GEO'],
   },
   {
-    id: 'clawrecord',
-    name: 'ClawRecord',
-    nameZh: 'ClawRecord',
-    description: 'Gamified OpenClaw tracking with XP, levels, achievements, and a global leaderboard. Built with Python and Node.js.',
-    descriptionZh: '游戏化 OpenClaw 使用统计：经验值、等级、成就与全球排行榜。Python + Node.js。',
-    href: 'https://github.com/luka2chat/clawrecord',
+    id: 'owngame',
+    name: 'owngame',
+    nameZh: 'owngame',
+    description:
+      'Play, remix, and make it yours. An open-source toolkit that lets your AI turn a game you like into your own version — change the art, reshape the rules, and play it at owngame.dev.',
+    descriptionZh:
+      '做属于自己的游戏。开源工具包，让 AI 把喜欢的游戏改成自己的版本：换画风、改规则，在 owngame.dev 直接玩。',
+    href: 'https://github.com/luka2chat/owngame',
     icon: 'tabler:device-gamepad-2',
-    tags: ['open-source', 'free', 'AI'],
+    tags: ['open-source', 'free', 'AI', 'tool'],
   },
   {
     id: 'geo-skills',
